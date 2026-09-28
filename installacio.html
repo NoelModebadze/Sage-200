@@ -8,14 +8,20 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 </head>
-<body>
+<body data-anterior="bases-dades.html" data-seguent="moduls.html">
 <a class="salta" href="#contingut">Salta al contingut</a>
+<div class="progres" aria-hidden="true"><span></span></div>
 
 <div class="pagina">
 
   <nav class="index" aria-label="Índex del treball">
-    <a class="marca" href="index.html">Sage 200</a>
-    <p class="autors">Nom Cognom 1 i Nom Cognom 2<br>Curs 2026-27</p>
+    <a class="marca" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#00a35c"/><rect x="8" y="8" width="7" height="7" rx="1.5" fill="#fff"/><rect x="17" y="8" width="7" height="7" rx="1.5" fill="#fff" opacity=".6"/><rect x="8" y="17" width="7" height="7" rx="1.5" fill="#fff" opacity=".6"/><rect x="17" y="17" width="7" height="7" rx="1.5" fill="#fff"/></svg><span>Sage 200</span></a>
+    <p class="autors">Noel Modebadze<br>Guillem Palahi<br><span class="curs">DAM · 2026-27</span></p>
+    <div class="cerca">
+      <label for="cerca" class="visualment-amagat">Cerca al treball</label>
+      <input type="search" id="cerca" placeholder="Cerca al treball…" autocomplete="off">
+      <ul id="resultats" class="resultats" hidden></ul>
+    </div>
     <ol>
       <li><a href="index.html">Introducció</a></li>
       <li><a href="informacio.html">Informació general</a></li>
@@ -28,6 +34,11 @@
       <li><a href="avantatges.html">Avantatges i inconvenients</a></li>
       <li><a href="bibliografia.html">Bibliografia</a></li>
     </ol>
+    <div class="eines">
+      <button type="button" id="boto-tema" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> <span class="txt">Mode fosc</span></button>
+      <button type="button" id="boto-presentacio" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Mode presentació</button>
+      <p class="dreceres">Tecles <kbd>←</kbd> <kbd>→</kbd> per canviar de pàgina</p>
+    </div>
   </nav>
   <button class="boto-menu" type="button" aria-expanded="false">Índex</button>
 
@@ -38,9 +49,10 @@
 
       <h3>Tipus d'instal·ladors</h3>
       <ul>
-        <li><strong>Instal·lador de servidor</strong> (executable per a Windows): instal·la els components centrals i crea o connecta la instància de SQL Server.</li>
+        <li><strong>Instal·lador de servidor</strong> (executable per a Windows): s'ha d'executar a la màquina on hi ha la instància de SQL Server. Si l'aplicació i la base de dades van en servidors diferents, cal triar la instal·lació <em>Personalitzada</em>.</li>
         <li><strong>Instal·lador de client / estació de treball</strong>: s'executa a cada ordinador d'usuari i apunta al servidor.</li>
-        <li><strong>LiveUpdate</strong>: servei d'actualització automàtica que descarrega i aplica noves versions i canvis legals.</li>
+        <li><strong>LiveUpdate</strong>: servei d'actualització automàtica que descarrega i aplica les noves versions i els canvis legals. Si està activat, no s'han de baixar les versions manualment des de My Sage, perquè es desconfigura.</li>
+        <li><strong>Descàrrega manual</strong>: fitxer ZIP des del portal My Sage, per a instal·lacions noves (versió <em>master</em> de l'any) o actualitzacions.</li>
         <li><strong>Modalitat al núvol</strong>: no hi ha instal·lador per a l'usuari; l'aprovisionament a Azure es fa de manera desatesa.</li>
       </ul>
 
@@ -48,7 +60,7 @@
       <ol class="passos">
         <li><strong>Anàlisi amb un partner.</strong> Un distribuïdor autoritzat estudia els processos de l'empresa i proposa l'edició, els mòduls i el nombre d'usuaris.</li>
         <li><strong>Contractació.</strong> Es signa la llicència (compra o subscripció) o es contracta en línia la modalitat al núvol.</li>
-        <li><strong>Preparar el servidor.</strong> Windows Server compatible, .NET Framework 4.8 i una instància de SQL Server.</li>
+        <li><strong>Preparar el servidor.</strong> Windows Server 2019, 2022 o 2025, .NET Framework 4.8 i SQL Server Standard o Enterprise (2017 o superior). Cal connexió a Internet, perquè el programa comprova la llicència periòdicament.</li>
         <li><strong>Instal·lar servidor i clients.</strong> S'executa l'instal·lador al servidor i després a cada estació de treball.</li>
         <li><strong>Activar la llicència i crear l'empresa.</strong> S'introdueixen les dades de l'empresa, el pla comptable i els exercicis.</li>
         <li><strong>Migració de dades.</strong> Es carreguen clients, proveïdors, articles i saldos inicials (sovint des de Sage Murano o un altre programa).</li>
@@ -80,6 +92,8 @@
   </main>
 </div>
 
+<button type="button" class="amunt" aria-label="Torna a dalt">↑</button>
+<script src="js/cerca-index.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

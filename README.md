@@ -1,31 +1,27 @@
-# Treball Sage 200 (HTML5 + CSS)
+# Sage 200 · Treball de Sistemes de Gestió Empresarial
+Noel Modebadze i Guillem Palahi · DAM 2026-27
 
-Web de diverses pàgines enllaçades entre si. No carrega cap recurs extern
-(ni fonts de Google, ni CDN, ni imatges d'Internet): funciona sense connexió
-a qualsevol PC. Només cal fer doble clic a `index.html`.
+Web de 10 pàgines enllaçades, feta amb HTML5, CSS3 i JavaScript sense llibreries.
+No carrega res d'Internet: funciona a qualsevol PC fent doble clic a `index.html`.
+(Els únics enllaços externs són les fonts de la bibliografia.)
 
+## Funcionalitats
+- Cercador intern (tecla `/`), amb índex a `js/cerca-index.js`
+- Mode fosc (es recorda entre pàgines)
+- Mode presentació per a l'exposició oral (`Esc` per sortir)
+- Navegació amb les fletxes ← → del teclat
+- Calculadora de cost de llicències (pàgina Comparativa)
+- Filtre d'ofertes de feina (tècniques / d'usuari)
+- Botó "Copia" als exemples de codi
+- Barra de progrés de lectura i botó per tornar a dalt
+- Disseny responsive (mòbil, tauleta, ordinador) i estils d'impressió
+
+## Estructura
 ```
-sage200-web/
-├── index.html          Portada + 1. Introducció + mapa de continguts
-├── informacio.html     2. Informació general
-├── llicencies.html     3. Llicències i preus
-├── bases-dades.html    4. Base de dades
-├── installacio.html    5. Instal·lació i accés
-├── moduls.html         6. Mòduls i desenvolupament
-├── competidors.html    7. Comparativa
-├── feina.html          8. Ofertes de feina
-├── avantatges.html     9. Avantatges i inconvenients
-├── bibliografia.html   10. Bibliografia
-├── css/style.css
-├── js/main.js          (menú mòbil)
-└── img/                favicon + les vostres captures
+index.html  informacio.html  llicencies.html  bases-dades.html  installacio.html
+moduls.html  competidors.html  feina.html  avantatges.html  bibliografia.html
+css/style.css   js/main.js   js/cerca-index.js   img/
 ```
-
-Els únics enllaços a Internet són els de la bibliografia (són les fonts
-consultades i s'obren en una pestanya nova).
-
-## Obrir a Visual Studio Code
-File → Open Folder → `sage200-web`. Opcional: extensió Live Server.
 
 ## Publicar (GitHub Pages)
 Repositori públic → puja els fitxers (index.html a l'arrel) →

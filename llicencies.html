@@ -8,14 +8,20 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 </head>
-<body>
+<body data-anterior="informacio.html" data-seguent="bases-dades.html">
 <a class="salta" href="#contingut">Salta al contingut</a>
+<div class="progres" aria-hidden="true"><span></span></div>
 
 <div class="pagina">
 
   <nav class="index" aria-label="Índex del treball">
-    <a class="marca" href="index.html">Sage 200</a>
-    <p class="autors">Nom Cognom 1 i Nom Cognom 2<br>Curs 2026-27</p>
+    <a class="marca" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#00a35c"/><rect x="8" y="8" width="7" height="7" rx="1.5" fill="#fff"/><rect x="17" y="8" width="7" height="7" rx="1.5" fill="#fff" opacity=".6"/><rect x="8" y="17" width="7" height="7" rx="1.5" fill="#fff" opacity=".6"/><rect x="17" y="17" width="7" height="7" rx="1.5" fill="#fff"/></svg><span>Sage 200</span></a>
+    <p class="autors">Noel Modebadze<br>Guillem Palahi<br><span class="curs">DAM · 2026-27</span></p>
+    <div class="cerca">
+      <label for="cerca" class="visualment-amagat">Cerca al treball</label>
+      <input type="search" id="cerca" placeholder="Cerca al treball…" autocomplete="off">
+      <ul id="resultats" class="resultats" hidden></ul>
+    </div>
     <ol>
       <li><a href="index.html">Introducció</a></li>
       <li><a href="informacio.html">Informació general</a></li>
@@ -28,6 +34,11 @@
       <li><a href="avantatges.html">Avantatges i inconvenients</a></li>
       <li><a href="bibliografia.html">Bibliografia</a></li>
     </ol>
+    <div class="eines">
+      <button type="button" id="boto-tema" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> <span class="txt">Mode fosc</span></button>
+      <button type="button" id="boto-presentacio" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Mode presentació</button>
+      <p class="dreceres">Tecles <kbd>←</kbd> <kbd>→</kbd> per canviar de pàgina</p>
+    </div>
   </nav>
   <button class="boto-menu" type="button" aria-expanded="false">Índex</button>
 
@@ -46,7 +57,7 @@
           <tbody>
             <tr><th scope="row">On-Premise (compra)</th><td>L'empresa compra la llicència, l'instal·la als seus servidors i paga una quota anual de manteniment per rebre actualitzacions i suport.</td><td>Empreses amb departament informàtic i servidor propi.</td></tr>
             <tr><th scope="row">Subscripció</th><td>L'empresa no compra el programa: paga una quota mensual pel seu ús, però pot continuar tenint-lo instal·lat a les seves màquines.</td><td>Pimes que volen evitar una inversió inicial gran.</td></tr>
-            <tr><th scope="row">Al núvol (SaaS / hosting)</th><td>El programa i la base de dades s'allotgen a Microsoft Azure; l'usuari hi accedeix des del navegador o per escriptori remot. Còpies de seguretat i servidor a càrrec del proveïdor.</td><td>Empreses sense servidor o amb treballadors a distància.</td></tr>
+            <tr><th scope="row">Al núvol (SaaS / hosting)</th><td>El programa i la base de dades s'allotgen al <em>Sage Partner Cloud</em> (sobre Microsoft Azure); l'usuari hi accedeix des del navegador. Còpies de seguretat i servidor a càrrec del proveïdor.</td><td>Empreses sense servidor o amb treballadors a distància.</td></tr>
           </tbody>
         </table>
       </div>
@@ -56,42 +67,46 @@
 
       <figure>
         <div class="llenc">
-          <svg viewBox="0 0 900 250" role="img" aria-labelledby="t-preus">
+          <svg viewBox="0 0 900 290" role="img" aria-labelledby="t-preus">
             <title id="t-preus">Preu d'entrada mensual de les edicions de Sage 200</title>
             <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
-              <!-- eix -->
-              <line x1="230" y1="30" x2="230" y2="200" stroke="#0f3d2e" stroke-width="2"/>
-              <line x1="230" y1="200" x2="870" y2="200" stroke="#0f3d2e" stroke-width="2"/>
-              <!-- guies -->
-              <g stroke="#d7ede1">
-                <line x1="380" y1="30" x2="380" y2="200"/><line x1="530" y1="30" x2="530" y2="200"/>
-                <line x1="680" y1="30" x2="680" y2="200"/><line x1="830" y1="30" x2="830" y2="200"/>
+              <g stroke="#e3efe8">
+                <line x1="350" y1="30" x2="350" y2="240"/><line x1="470" y1="30" x2="470" y2="240"/>
+                <line x1="590" y1="30" x2="590" y2="240"/><line x1="710" y1="30" x2="710" y2="240"/><line x1="830" y1="30" x2="830" y2="240"/>
               </g>
-              <g font-size="12" fill="#5b6b63" text-anchor="middle">
-                <text x="230" y="220">0 €</text><text x="380" y="220">40 €</text><text x="530" y="220">80 €</text>
-                <text x="680" y="220">120 €</text><text x="830" y="220">160 €</text>
+              <line x1="230" y1="30" x2="230" y2="240" stroke="#0b2e22" stroke-width="2"/>
+              <line x1="230" y1="240" x2="870" y2="240" stroke="#0b2e22" stroke-width="2"/>
+              <g font-size="12" fill="#64748b" text-anchor="middle">
+                <text x="230" y="260">0 €</text><text x="350" y="260">50 €</text><text x="470" y="260">100 €</text>
+                <text x="590" y="260">150 €</text><text x="710" y="260">200 €</text><text x="830" y="260">250 €</text>
               </g>
-              <!-- barres (1 € = 3.75 px) -->
-              <text x="215" y="80" text-anchor="end" font-size="15" font-weight="600">Sage 200 Extra</text>
-              <rect x="232" y="58" width="187.5" height="36" fill="#1f7a52"/>
-              <text x="428" y="82" font-size="15" font-weight="700" fill="#0f3d2e">des de 50 €/mes</text>
+              <!-- 1 € = 2,4 px -->
+              <text x="215" y="72" text-anchor="end" font-size="15" font-weight="600">Sage 200 Extra</text>
+              <rect x="232" y="50" width="120" height="34" rx="4" fill="#7fd1a8"/>
+              <text x="362" y="73" font-size="15" font-weight="700" fill="#0b2e22">50 €</text>
 
-              <text x="215" y="150" text-anchor="end" font-size="15" font-weight="600">Smart Business</text>
-              <rect x="232" y="128" width="510" height="36" fill="#0f3d2e"/>
-              <text x="750" y="152" font-size="15" font-weight="700" fill="#0f3d2e">des de 136 €/mes</text>
+              <text x="215" y="137" text-anchor="end" font-size="15" font-weight="600">Smart Business</text>
+              <rect x="232" y="115" width="326" height="34" rx="4" fill="#00a35c"/>
+              <text x="568" y="138" font-size="15" font-weight="700" fill="#0b2e22">136 €</text>
+
+              <text x="215" y="194" text-anchor="end" font-size="15" font-weight="600">Smart Business</text>
+              <text x="215" y="212" text-anchor="end" font-size="15" font-weight="600">Complete</text>
+              <rect x="232" y="180" width="564" height="34" rx="4" fill="#0b2e22"/>
+              <text x="806" y="203" font-size="15" font-weight="700" fill="#0b2e22">235 €</text>
             </g>
           </svg>
         </div>
-        <figcaption>Figura 3. Preu d'entrada mensual publicat per Sage. Sage 200 Advanced no té preu públic: es pressuposta a través d'un partner.</figcaption>
+        <figcaption>Figura 3. Preu mensual "des de" publicat a la web de Sage Espanya (setembre de 2026). El preu final depèn del nombre d'usuaris i dels mòduls activats. Sage 200 Advanced no té preu públic: es pressuposta a través d'un partner.</figcaption>
       </figure>
 
       <div class="taula">
         <table>
           <thead><tr><th scope="col">Edició</th><th scope="col">Preu orientatiu</th><th scope="col">Característiques</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Sage 200 Extra</th><td>Des de 50 €/mes</td><td>Solució de gestió integral modular per a pimes, al núvol.</td></tr>
-            <tr><th scope="row">Sage 200 Smart Business</th><td>Des de 136 €/mes</td><td>ERP modular amb mobilitat i assistència d'IA per a vendes i control de despeses. Sense límit d'usuaris.</td></tr>
-            <tr><th scope="row">Sage 200 Advanced</th><td>Sota pressupost</td><td>La versió més completa (producció, projectes, magatzems avançats). Llicència + manteniment o subscripció, via partner.</td></tr>
+            <tr><th scope="row">Sage 200 Extra</th><td>Des de 50 €/mes</td><td>Solució de gestió integral modular per a pimes. Els mòduls (comptabilitat analítica, vendes, compres, CRM, nòmines…) s'hi afegeixen com a opcions.</td></tr>
+            <tr><th scope="row">Sage 200 Smart Business</th><td>Des de 136 €/mes</td><td>ERP 360º modular amb mobilitat i IA (Sage Copilot per veu) per a vendes i control de despeses. Sense límit d'usuaris. Segons Sage, és l'edició més popular entre les pimes.</td></tr>
+            <tr><th scope="row">Sage 200 Smart Business Complete <span class="nou">Nou</span></th><td>Des de 235 €/mes</td><td>Tot el que inclou Smart Business més la gestió de recursos humans. Sense límit d'usuaris.</td></tr>
+            <tr><th scope="row">Sage 200 Advanced</th><td>Sota pressupost</td><td>Edició llançada el desembre de 2020, amb API per connectar aplicacions de tercers. Es contracta a través de partners.</td></tr>
           </tbody>
         </table>
       </div>
@@ -109,6 +124,8 @@
   </main>
 </div>
 
+<button type="button" class="amunt" aria-label="Torna a dalt">↑</button>
+<script src="js/cerca-index.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -8,14 +8,20 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 </head>
-<body>
+<body data-anterior="" data-seguent="informacio.html">
 <a class="salta" href="#contingut">Salta al contingut</a>
+<div class="progres" aria-hidden="true"><span></span></div>
 
 <div class="pagina">
 
   <nav class="index" aria-label="Índex del treball">
-    <a class="marca" href="index.html">Sage 200</a>
-    <p class="autors">Nom Cognom 1 i Nom Cognom 2<br>Curs 2026-27</p>
+    <a class="marca" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#00a35c"/><rect x="8" y="8" width="7" height="7" rx="1.5" fill="#fff"/><rect x="17" y="8" width="7" height="7" rx="1.5" fill="#fff" opacity=".6"/><rect x="8" y="17" width="7" height="7" rx="1.5" fill="#fff" opacity=".6"/><rect x="17" y="17" width="7" height="7" rx="1.5" fill="#fff"/></svg><span>Sage 200</span></a>
+    <p class="autors">Noel Modebadze<br>Guillem Palahi<br><span class="curs">DAM · 2026-27</span></p>
+    <div class="cerca">
+      <label for="cerca" class="visualment-amagat">Cerca al treball</label>
+      <input type="search" id="cerca" placeholder="Cerca al treball…" autocomplete="off">
+      <ul id="resultats" class="resultats" hidden></ul>
+    </div>
     <ol>
       <li><a href="index.html" class="actiu" aria-current="page">Introducció</a></li>
       <li><a href="informacio.html">Informació general</a></li>
@@ -28,33 +34,32 @@
       <li><a href="avantatges.html">Avantatges i inconvenients</a></li>
       <li><a href="bibliografia.html">Bibliografia</a></li>
     </ol>
+    <div class="eines">
+      <button type="button" id="boto-tema" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> <span class="txt">Mode fosc</span></button>
+      <button type="button" id="boto-presentacio" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Mode presentació</button>
+      <p class="dreceres">Tecles <kbd>←</kbd> <kbd>→</kbd> per canviar de pàgina</p>
+    </div>
   </nav>
   <button class="boto-menu" type="button" aria-expanded="false">Índex</button>
 
   <main id="contingut">
 
     <header class="portada">
-      <h1>Sage 200</h1>
-      <p class="subtitol">L'ERP que porten els comptes de milers de pimes espanyoles. Un treball sobre com funciona, quant costa, com es programa i qui el demana a les ofertes de feina.</p>
-
-      <div class="assentament">
-        <table>
-          <caption>Assentament núm. 200 · resum del treball en format de llibre diari</caption>
-          <thead>
-            <tr><th scope="col">Compte</th><th scope="col">Concepte</th><th scope="col" class="num">Deure</th><th scope="col" class="num">Haver</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Tipus de SGE</td><td>ERP modular per a pimes i mitjana empresa</td><td class="num deure">ERP</td><td class="num"></td></tr>
-            <tr><td>Fabricant</td><td>The Sage Group plc (Newcastle, 1981)</td><td class="num deure">Sage</td><td class="num"></td></tr>
-            <tr><td>Origen</td><td>Logic Class → Sage Murano → Sage 200c → Sage 200</td><td class="num deure">2001</td><td class="num"></td></tr>
-            <tr><td>Base de dades</td><td>Microsoft SQL Server (relacional)</td><td class="num deure">SQL</td><td class="num"></td></tr>
-            <tr><td>Preu d'entrada</td><td>Sage 200 Extra, subscripció mensual</td><td class="num"></td><td class="num haver">50 €/mes</td></tr>
-          </tbody>
-          <tfoot>
-            <tr><td colspan="2">Saldo</td><td colspan="2" class="num">Quadrat ✓</td></tr>
-          </tfoot>
-        </table>
+      <div class="portada-text">
+        <p class="portada-etiqueta">Treball de Sistemes de Gestió Empresarial</p>
+        <h1>Sage 200</h1>
+        <p class="subtitol">L'ERP que fan servir milers de pimes espanyoles per portar la comptabilitat, les vendes, l'estoc i les nòmines. Com funciona, quant costa, com es programa i qui el demana a les ofertes de feina.</p>
+        <div class="portada-botons">
+          <a class="boto boto-principal" href="#introduccio">Començar</a>
+          <a class="boto boto-secundari" href="competidors.html">Veure la comparativa</a>
+        </div>
       </div>
+      <dl class="xifres">
+        <div><dt>Tipus de SGE</dt><dd>ERP</dd></div>
+        <div><dt>Origen</dt><dd>2001</dd></div>
+        <div><dt>Base de dades</dt><dd>SQL Server</dd></div>
+        <div><dt>Preu d'entrada</dt><dd>50 €/mes</dd></div>
+      </dl>
     </header>
 
     <section class="seccio" id="introduccio">
@@ -74,7 +79,7 @@
       <p class="nota">Atenció: al Regne Unit existeix un producte també anomenat <em>Sage 200</em> amb un codi i una història diferents. Aquest treball se centra en la versió <strong>espanyola</strong>, que és la que es fa servir a les empreses de Catalunya.</p>
 
       <h3>Continguts del treball</h3>
-      <p>Cada apartat és una pàgina. Pots navegar-hi des d'aquí, des de l'índex lateral o amb els botons <em>Anterior</em> i <em>Següent</em> del final de cada pàgina.</p>
+      <p>Cada apartat és una pàgina. Pots navegar-hi des d'aquí, des de l'índex lateral, amb els botons <em>Anterior</em> i <em>Següent</em> o amb les fletxes <kbd>←</kbd> <kbd>→</kbd> del teclat. Al lateral trobaràs un <strong>cercador</strong> (tecla <kbd>/</kbd>), el <strong>mode fosc</strong> i el <strong>mode presentació</strong>, pensat per a l'exposició a classe.</p>
       <ol class="mapa">
         <li><a href="index.html">Introducció</a></li>
         <li><a href="informacio.html">Informació general</a></li>
@@ -100,6 +105,8 @@
   </main>
 </div>
 
+<button type="button" class="amunt" aria-label="Torna a dalt">↑</button>
+<script src="js/cerca-index.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

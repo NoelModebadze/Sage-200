@@ -1,462 +1,554 @@
 /* =========================================================
    Sage 200 · Treball SGE
-   Estètica: llibre de comptabilitat (paper pautat, tinta
-   verda, marcador groc).  HTML5 + CSS3, sense frameworks
-   ni recursos externs: funciona sense connexió.
+   Disseny corporatiu net: fons clar, panell lateral blanc,
+   verd com a color d'acció i verd fosc per als titulars.
+   HTML5 + CSS3, sense recursos externs (funciona offline).
    ========================================================= */
 
 :root {
-  --bosc: #0f3d2e;        /* verd fosc: capçaleres, text fort */
-  --fulla: #1f7a52;       /* verd mitjà: enllaços, línies */
-  --pauta: #d7ede1;       /* verd pàl·lid: línies del llibre */
-  --paper: #fbfdfb;       /* fons */
-  --tinta: #16241e;       /* text */
-  --gris: #5b6b63;        /* text secundari */
-  --marcador: #f2c14e;    /* groc de subratllador */
-  --vermell: #b3412f;     /* "haver" / inconvenients */
-  --blanc: #ffffff;
+  --fosc: #0b2e22;        /* titulars, portada */
+  --fosc-2: #124535;
+  --verd: #00a35c;        /* color principal / accions */
+  --verd-text: #00804a;
+  --verd-clar: #e6f6ee;   /* fons suaus */
+  --linia: #e3e8ec;       /* vores */
+  --fons: #eef2f1;        /* fons general */
+  --blanc: #ffffff;       /* superfícies */
+  --superficie-2: #f8fafb;
+  --text: #1e293b;
+  --text-2: #64748b;
+  --titol: #0b2e22;
+  --vermell: #d14343;
+  --vermell-clar: #fdecec;
+  --nota-fons: #f1f7f4;
+  --nota-vora: #d5ebdf;
+  --xip: #f1f5f9;
+  --lateral: rgba(255, 255, 255, .82);
+  --fons-imatge:
+    radial-gradient(1200px 600px at 110% -10%, rgba(0, 163, 92, .16), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(56, 132, 255, .10), transparent 60%),
+    radial-gradient(rgba(11, 46, 34, .07) 1px, transparent 1.2px);
+  color-scheme: light;
 
-  /* Només lletres del sistema: funciona sense Internet a qualsevol PC */
-  --lletra-titol: "Segoe UI Variable Display", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --lletra-text: "Segoe UI", -apple-system, "Helvetica Neue", Roboto, Ubuntu, Arial, sans-serif;
-  --lletra-codi: "Cascadia Code", Consolas, Menlo, "DejaVu Sans Mono", "Courier New", monospace;
+  --lletra: "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Roboto, Ubuntu, Arial, sans-serif;
+  --lletra-titol: "Segoe UI Variable Display", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Roboto, Arial, sans-serif;
+  --lletra-codi: "Cascadia Code", Consolas, Menlo, "DejaVu Sans Mono", monospace;
 
+  --radi: 12px;
+  --ombra: 0 1px 2px rgba(15, 23, 42, .04), 0 4px 16px rgba(15, 23, 42, .06);
   --amplada-text: 46rem;
-  --radi: 6px;
+  --amplada: 62rem;
 }
 
-*,
-*::before,
-*::after { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  * { animation: none !important; transition: none !important; }
+  * { transition: none !important; }
 }
 
 body {
   margin: 0;
-  font-family: var(--lletra-text);
+  font-family: var(--lletra);
   font-size: 1.0625rem;
   line-height: 1.65;
-  color: var(--tinta);
-  background-color: var(--paper);
-  /* paper pautat de llibre de comptes */
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 31px,
-    var(--pauta) 31px,
-    var(--pauta) 32px
-  );
+  color: var(--text);
+  background-color: var(--fons);
+  background-image: var(--fons-imatge);
+  background-size: auto, auto, 22px 22px;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .2s, color .2s;
 }
 
 img, svg { max-width: 100%; height: auto; display: block; }
+a { color: var(--verd-text); text-underline-offset: 3px; }
+a:hover { color: var(--fosc); }
+:focus-visible { outline: 3px solid var(--verd); outline-offset: 2px; border-radius: 4px; }
 
-a { color: var(--fulla); text-underline-offset: 3px; }
-a:hover { color: var(--bosc); }
-
-:focus-visible {
-  outline: 3px solid var(--marcador);
-  outline-offset: 2px;
-}
-
-.salta {
-  position: absolute; left: -999px; top: 0;
-  background: var(--bosc); color: var(--blanc); padding: .5rem 1rem;
-}
+.salta { position: absolute; left: -999px; top: 0; background: var(--fosc); color: #fff; padding: .5rem 1rem; }
 .salta:focus { left: 1rem; z-index: 100; }
 
-/* ---------- Estructura: índex lateral + contingut ---------- */
+/* ---------------- Tema fosc ---------------- */
+:root[data-theme="dark"] {
+  --verd-text: #3ddc8f;
+  --verd-clar: rgba(0, 163, 92, .16);
+  --linia: #243330;
+  --fons: #0a1311;
+  --blanc: #111c19;
+  --superficie-2: #15221f;
+  --text: #dbe5e1;
+  --text-2: #8fa39c;
+  --titol: #eef6f2;
+  --vermell-clar: rgba(209, 67, 67, .16);
+  --nota-fons: rgba(0, 163, 92, .08);
+  --nota-vora: rgba(0, 163, 92, .25);
+  --xip: #1b2926;
+  --lateral: rgba(14, 24, 21, .85);
+  --ombra: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  --fons-imatge:
+    radial-gradient(1200px 600px at 110% -10%, rgba(0, 163, 92, .20), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(56, 132, 255, .10), transparent 60%),
+    radial-gradient(rgba(255, 255, 255, .05) 1px, transparent 1.2px);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --verd-text: #3ddc8f;
+    --verd-clar: rgba(0, 163, 92, .16);
+    --linia: #243330;
+    --fons: #0a1311;
+    --blanc: #111c19;
+    --superficie-2: #15221f;
+    --text: #dbe5e1;
+    --text-2: #8fa39c;
+    --titol: #eef6f2;
+    --vermell-clar: rgba(209, 67, 67, .16);
+    --nota-fons: rgba(0, 163, 92, .08);
+    --nota-vora: rgba(0, 163, 92, .25);
+    --xip: #1b2926;
+    --lateral: rgba(14, 24, 21, .85);
+    --ombra: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    --fons-imatge:
+      radial-gradient(1200px 600px at 110% -10%, rgba(0, 163, 92, .20), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(56, 132, 255, .10), transparent 60%),
+      radial-gradient(rgba(255, 255, 255, .05) 1px, transparent 1.2px);
+    color-scheme: dark;
+  }
+}
+
+/* ---------------- Estructura ---------------- */
 
 .pagina {
   display: grid;
-  grid-template-columns: 17rem 1fr;
+  grid-template-columns: 17.5rem 1fr;
   min-height: 100vh;
 }
+
+main {
+  min-width: 0;
+  padding: 2rem clamp(1.25rem, 4vw, 3.5rem) 3rem;
+}
+main > * { max-width: var(--amplada); margin-left: auto; margin-right: auto; }
+
+/* ---------------- Panell lateral ---------------- */
 
 .index {
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
-  background: var(--bosc);
-  color: #cfe6da;
-  padding: 2rem 1.5rem;
+  background: var(--lateral);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-right: 1px solid var(--linia);
+  padding: 1.75rem 1.25rem;
 }
 
 .index .marca {
-  display: block;
-  text-decoration: none;
-  font-family: var(--lletra-titol);
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--blanc);
-  margin: 0 0 .25rem;
-  letter-spacing: -0.02em;
-}
-.index .autors { font-size: .9rem; margin: 0 0 2rem; color: #9fc4b1; }
-
-.index ol {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  counter-reset: sec;
-}
-.index li { counter-increment: sec; }
-.index a {
   display: flex;
-  gap: .75rem;
-  padding: .45rem .5rem;
-  color: #cfe6da;
+  align-items: center;
+  gap: .7rem;
   text-decoration: none;
-  border-left: 3px solid transparent;
-  border-radius: 0 var(--radi) var(--radi) 0;
-  font-size: .98rem;
+  color: var(--titol);
+  font-family: var(--lletra-titol);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
 }
-.index a::before {
-  content: counter(sec, decimal-leading-zero);
-  font-family: var(--lletra-codi);
-  font-size: .8rem;
-  color: #7fae96;
-  padding-top: .15rem;
+.index .marca svg { width: 2.1rem; height: 2.1rem; }
+
+.index .autors {
+  font-size: .85rem;
+  color: var(--text-2);
+  margin: 1rem 0 1.5rem;
+  padding: .75rem .9rem;
+  background: var(--fons);
+  border-radius: 8px;
 }
-.index a:hover { background: rgba(255,255,255,.06); color: var(--blanc); }
-.index a.actiu {
-  border-left-color: var(--marcador);
-  color: var(--blanc);
-  background: rgba(255,255,255,.08);
+
+.index ol { list-style: none; padding: 0; margin: 0; counter-reset: sec; }
+.index li { counter-increment: sec; margin-bottom: 2px; }
+.index a:not(.marca) {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .55rem .75rem;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: .95rem;
+  transition: background .15s;
 }
+.index a:not(.marca)::before {
+  content: counter(sec);
+  flex: 0 0 1.6rem;
+  height: 1.6rem;
+  display: grid;
+  place-items: center;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--text-2);
+  background: var(--fons);
+  border-radius: 6px;
+}
+.index a:not(.marca):hover { background: var(--fons); }
+.index a.actiu { background: var(--verd-clar); color: var(--titol); font-weight: 600; }
+.index a.actiu::before { background: var(--verd); color: #fff; }
 
 .boto-menu { display: none; }
 
-main {
-  padding: 0 clamp(1.25rem, 5vw, 4.5rem) 4rem;
-  min-width: 0;
-}
-
-/* ---------- Portada: l'assentament comptable ---------- */
+/* ---------------- Portada ---------------- */
 
 .portada {
-  padding: 4.5rem 0 3.5rem;
-  max-width: 62rem;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--fosc) 0%, var(--fosc-2) 60%, #0f5a40 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: clamp(2rem, 5vw, 3.75rem);
+  margin-bottom: 2rem;
+  box-shadow: 0 20px 50px -25px rgba(11, 46, 34, .6);
+}
+/* motiu geomètric de "mòduls" al fons */
+.portada::after {
+  content: "";
+  position: absolute;
+  right: -3rem;
+  top: -3rem;
+  width: 22rem;
+  height: 22rem;
+  background:
+    linear-gradient(rgba(255,255,255,.07), rgba(255,255,255,.07)) 0 0 / 46% 46% no-repeat,
+    linear-gradient(rgba(0,209,122,.22), rgba(0,209,122,.22)) 100% 0 / 46% 46% no-repeat,
+    linear-gradient(rgba(0,209,122,.14), rgba(0,209,122,.14)) 0 100% / 46% 46% no-repeat,
+    linear-gradient(rgba(255,255,255,.05), rgba(255,255,255,.05)) 100% 100% / 46% 46% no-repeat;
+  border-radius: 28px;
+  transform: rotate(12deg);
+  pointer-events: none;
+}
+.portada-text { position: relative; z-index: 1; max-width: 40rem; }
+
+.portada-etiqueta {
+  display: inline-block;
+  font-size: .85rem;
+  font-weight: 600;
+  color: #b8f0d4;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  padding: .3rem .8rem;
+  border-radius: 999px;
+  margin: 0 0 1.25rem;
 }
 
 .portada h1 {
   font-family: var(--lletra-titol);
-  font-weight: 800;
-  font-size: clamp(3rem, 9vw, 6.5rem);
-  line-height: .95;
-  letter-spacing: -0.04em;
-  color: var(--bosc);
+  font-size: clamp(2.8rem, 7vw, 4.75rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
   margin: 0 0 1rem;
 }
-
 .portada .subtitol {
-  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
-  max-width: 38rem;
-  color: var(--gris);
-  margin: 0 0 2.5rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  color: #d3e6dc;
+  margin: 0 0 2rem;
 }
 
-.assentament {
-  background: var(--blanc);
-  border: 1px solid var(--pauta);
-  border-top: 6px double var(--bosc);
-  border-radius: var(--radi);
-  box-shadow: 0 18px 40px -24px rgba(15, 61, 46, .45);
-  overflow-x: auto;
-}
-.assentament table { width: 100%; border-collapse: collapse; min-width: 34rem; }
-.assentament caption {
-  text-align: left;
-  font-family: var(--lletra-codi);
-  font-size: .85rem;
-  color: var(--gris);
-  padding: .9rem 1.25rem .4rem;
-}
-.assentament th,
-.assentament td {
-  padding: .7rem 1.25rem;
-  border-bottom: 1px solid var(--pauta);
-  text-align: left;
-}
-.assentament th {
-  font-size: .85rem;
+.portada-botons { display: flex; flex-wrap: wrap; gap: .75rem; }
+.boto {
+  display: inline-flex;
+  align-items: center;
+  padding: .75rem 1.3rem;
+  border-radius: 10px;
   font-weight: 600;
-  color: var(--gris);
+  text-decoration: none;
+  transition: transform .15s, background .15s;
 }
-.assentament th.num,
-.assentament td.num {
-  font-family: var(--lletra-codi);
-  text-align: right;
-  white-space: nowrap;
-}
-.assentament .deure { color: var(--fulla); }
-.assentament .haver { color: var(--vermell); }
-.assentament tfoot td {
-  font-weight: 700;
-  border-bottom: 0;
-  border-top: 2px solid var(--bosc);
-}
+.boto:hover { transform: translateY(-1px); }
+.boto-principal { background: var(--verd); color: #fff; }
+.boto-principal:hover { background: #00b867; color: #fff; }
+.boto-secundari { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.25); }
+.boto-secundari:hover { background: rgba(255,255,255,.18); color: #fff; }
 
-/* ---------- Seccions ---------- */
+.xifres {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin: 2.75rem 0 0;
+  background: rgba(255,255,255,.14);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.xifres div { background: rgba(11, 46, 34, .55); padding: 1.1rem 1.25rem; }
+.xifres dt { font-size: .82rem; color: #a9cdbb; margin-bottom: .2rem; }
+.xifres dd { margin: 0; font-family: var(--lletra-titol); font-size: 1.45rem; font-weight: 700; }
+
+/* ---------------- Seccions (targeta blanca) ---------------- */
 
 .seccio {
-  padding: 3.5rem 0 1rem;
-  border-top: 2px solid var(--bosc);
-  margin-top: 2rem;
+  background: var(--blanc);
+  border: 1px solid var(--linia);
+  border-radius: 16px;
+  box-shadow: var(--ombra);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: 1.5rem;
 }
 
 .seccio > h2 {
   font-family: var(--lletra-titol);
-  font-weight: 800;
-  font-size: clamp(2rem, 4.5vw, 2.9rem);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  color: var(--bosc);
-  margin: 0 0 1.5rem;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.6vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--titol);
+  margin: 0 0 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--linia);
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 1rem;
 }
 .seccio > h2 .n {
-  font-family: var(--lletra-codi);
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--fulla);
   flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 10px;
+  background: var(--verd-clar);
+  color: var(--verd-text);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 h3 {
   font-family: var(--lletra-titol);
+  font-size: 1.3rem;
   font-weight: 700;
-  font-size: 1.4rem;
+  color: var(--titol);
   letter-spacing: -0.01em;
-  color: var(--bosc);
-  margin: 2.25rem 0 .6rem;
+  margin: 2.25rem 0 .75rem;
 }
+.seccio > h2 + h3, .seccio > h2 + p + h3 { margin-top: 0; }
+h4 { font-size: 1.05rem; color: var(--titol); margin: 1.75rem 0 .5rem; }
 
-h4 {
-  font-family: var(--lletra-titol);
-  font-size: 1.1rem;
-  margin: 1.5rem 0 .4rem;
-  color: var(--bosc);
-}
+.seccio p, .seccio ul, .seccio ol { max-width: var(--amplada-text); }
+.seccio li { margin-bottom: .4rem; }
+.seccio ul li::marker { color: var(--verd); }
 
-.seccio p,
-.seccio ul,
-.seccio ol { max-width: var(--amplada-text); }
-
-.seccio li { margin-bottom: .35rem; }
-
-.destacat {
-  background: linear-gradient(transparent 55%, rgba(242, 193, 78, .55) 55%);
-  padding: 0 .1em;
-}
+.destacat { color: var(--verd-text); font-weight: 700; }
 
 .nota {
   max-width: var(--amplada-text);
   font-size: .95rem;
-  color: var(--gris);
-  border-left: 3px solid var(--marcador);
-  padding: .4rem 0 .4rem 1rem;
-  margin: 1.25rem 0;
+  color: var(--text);
+  background: var(--nota-fons);
+  border: 1px solid var(--nota-vora);
+  border-radius: 10px;
+  padding: .9rem 1.1rem .9rem 2.9rem;
+  margin: 1.5rem 0;
+  position: relative;
+}
+.nota::before {
+  content: "i";
+  position: absolute;
+  left: 1rem;
+  top: .95rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background: var(--verd);
+  color: #fff;
+  font: 700 .8rem/1.3rem Georgia, serif;
+  text-align: center;
 }
 
-/* Fitxa tècnica (dl) */
+/* Fitxa tècnica */
 .fitxa {
   display: grid;
-  grid-template-columns: minmax(9rem, 14rem) 1fr;
-  max-width: 52rem;
-  margin: 1.5rem 0;
-  background: var(--blanc);
-  border: 1px solid var(--pauta);
+  grid-template-columns: minmax(9rem, 13rem) 1fr;
+  margin: 1.25rem 0;
+  border: 1px solid var(--linia);
   border-radius: var(--radi);
+  overflow: hidden;
 }
-.fitxa dt,
-.fitxa dd {
-  margin: 0;
-  padding: .75rem 1rem;
-  border-bottom: 1px solid var(--pauta);
-}
-.fitxa dt { font-weight: 700; color: var(--bosc); background: #f3f9f5; }
-.fitxa dt:last-of-type,
-.fitxa dd:last-of-type { border-bottom: 0; }
+.fitxa dt, .fitxa dd { margin: 0; padding: .85rem 1.1rem; border-bottom: 1px solid var(--linia); }
+.fitxa dt { font-weight: 600; color: var(--titol); background: var(--superficie-2); }
+.fitxa dt:last-of-type, .fitxa dd:last-of-type { border-bottom: 0; }
 
-/* Figures i gràfics */
-figure {
-  margin: 2rem 0;
-  max-width: 54rem;
-}
+/* Figures */
+figure { margin: 1.75rem 0; }
 figure .llenc {
-  background: var(--blanc);
-  border: 1px solid var(--pauta);
+  background: #fbfcfd;
+  color: #1e293b;
+  border: 1px solid var(--linia);
   border-radius: var(--radi);
   padding: 1.25rem;
   overflow-x: auto;
 }
 figure .llenc svg { min-width: 36rem; width: 100%; }
-figcaption {
-  font-size: .9rem;
-  color: var(--gris);
-  margin-top: .6rem;
-}
+figcaption { font-size: .88rem; color: var(--text-2); margin-top: .6rem; }
 
 /* Taules */
 .taula {
   overflow-x: auto;
   margin: 1.5rem 0;
-  max-width: 60rem;
-  background: var(--blanc);
-  border: 1px solid var(--pauta);
+  border: 1px solid var(--linia);
   border-radius: var(--radi);
 }
-.taula table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 40rem;
-  font-size: .98rem;
-}
-.taula th,
-.taula td {
-  padding: .75rem 1rem;
+.taula table { width: 100%; border-collapse: collapse; min-width: 40rem; font-size: .96rem; }
+.taula th, .taula td {
+  padding: .85rem 1.1rem;
   text-align: left;
   vertical-align: top;
-  border-bottom: 1px solid var(--pauta);
+  border-bottom: 1px solid var(--linia);
 }
 .taula thead th {
-  background: var(--bosc);
-  color: var(--blanc);
-  font-family: var(--lletra-titol);
+  background: var(--superficie-2);
+  color: var(--text-2);
+  font-size: .82rem;
   font-weight: 700;
+  letter-spacing: .02em;
 }
-.taula thead th.nostre { background: var(--fulla); }
-.taula tbody th { color: var(--bosc); background: #f3f9f5; font-weight: 700; }
-.taula tbody tr:last-child td,
-.taula tbody tr:last-child th { border-bottom: 0; }
+.taula thead th.nostre { background: var(--verd-clar); color: var(--verd-text); }
+.taula tbody th { color: var(--titol); font-weight: 600; }
+.taula tbody tr:last-child td, .taula tbody tr:last-child th { border-bottom: 0; }
+.taula tbody tr:hover { background: var(--superficie-2); }
+.taula td:nth-child(2):not(:only-child) { }
 
-/* Avantatges / inconvenients */
-.balanc th.mes { background: var(--fulla); }
-.balanc th.menys { background: var(--vermell); }
+/* Punts forts / dèbils */
+.balanc thead th.mes { background: var(--verd-clar); color: var(--verd-text); }
+.balanc thead th.menys { background: var(--vermell-clar); color: var(--vermell); }
 .balanc td { width: 50%; }
+.balanc td { padding-left: 2.6rem; position: relative; }
 .balanc td::before {
-  font-family: var(--lletra-codi);
-  font-weight: 700;
-  margin-right: .5rem;
+  position: absolute;
+  left: 1rem;
+  top: .95rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  font: 700 .8rem/1.1rem var(--lletra);
+  text-align: center;
+  color: #fff;
 }
-.balanc td.mes::before { content: "+"; color: var(--fulla); }
-.balanc td.menys::before { content: "−"; color: var(--vermell); }
+.balanc td.mes::before { content: "✓"; background: var(--verd); }
+.balanc td.menys::before { content: "–"; background: var(--vermell); }
 
 /* Mòduls */
 .moduls {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 1.25rem;
+  gap: 1rem;
   margin: 1.5rem 0;
-  max-width: 62rem;
 }
 .modul {
-  background: var(--blanc);
-  border: 1px solid var(--pauta);
-  border-top: 4px solid var(--fulla);
+  border: 1px solid var(--linia);
   border-radius: var(--radi);
-  padding: 1.25rem 1.25rem .75rem;
+  padding: 1.4rem 1.4rem .8rem;
+  background: var(--superficie-2);
 }
-.modul h3 { margin-top: 0; font-size: 1.25rem; }
-.modul svg { width: 2.5rem; height: 2.5rem; margin-bottom: .75rem; }
-.modul ul { padding-left: 1.1rem; font-size: .98rem; }
+.modul h3 { margin: 0 0 .5rem; font-size: 1.15rem; }
+.modul svg {
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: .5rem;
+  background: var(--verd-clar);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.modul ul { padding-left: 1.1rem; font-size: .95rem; color: var(--text); }
 
-/* Passos d'instal·lació (és una seqüència real) */
-.passos {
-  list-style: none;
-  padding: 0;
-  counter-reset: pas;
-  max-width: var(--amplada-text);
-}
+/* Passos */
+.passos { list-style: none; padding: 0; counter-reset: pas; }
 .passos li {
   counter-increment: pas;
   position: relative;
-  padding: 0 0 1.25rem 3.25rem;
-  border-left: 2px solid var(--pauta);
-  margin-left: 1.1rem;
+  padding: 0 0 1.4rem 3.4rem;
+  margin: 0;
 }
-.passos li:last-child { border-left-color: transparent; }
+.passos li::after {
+  content: "";
+  position: absolute;
+  left: 1.05rem;
+  top: 2.3rem;
+  bottom: .2rem;
+  width: 2px;
+  background: var(--linia);
+}
+.passos li:last-child::after { display: none; }
 .passos li::before {
   content: counter(pas);
   position: absolute;
-  left: -1.15rem;
+  left: 0;
   top: -.1rem;
-  width: 2.3rem;
-  height: 2.3rem;
+  width: 2.2rem;
+  height: 2.2rem;
   border-radius: 50%;
-  background: var(--bosc);
-  color: var(--blanc);
+  background: var(--verd-clar);
+  color: var(--verd-text);
+  border: 2px solid var(--verd);
   display: grid;
   place-items: center;
-  font-family: var(--lletra-codi);
   font-weight: 700;
+  font-size: .9rem;
 }
-.passos strong { color: var(--bosc); }
+.passos strong { color: var(--titol); }
 
 /* Codi */
 pre {
-  background: #10261d;
-  color: #e3f1e9;
+  background: #0f172a;
+  color: #e2e8f0;
   font-family: var(--lletra-codi);
-  font-size: .9rem;
-  line-height: 1.55;
+  font-size: .88rem;
+  line-height: 1.6;
   padding: 1.25rem 1.5rem;
   border-radius: var(--radi);
   overflow-x: auto;
-  max-width: 54rem;
-  border-left: 4px solid var(--marcador);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
 }
-code { font-family: var(--lletra-codi); font-size: .92em; }
-p code, li code, td code {
-  background: #eaf4ee;
-  padding: .1em .35em;
-  border-radius: 4px;
+code { font-family: var(--lletra-codi); font-size: .9em; }
+p code, li code, td code, figcaption code {
+  background: var(--xip);
+  color: var(--verd-text);
+  padding: .1em .4em;
+  border-radius: 5px;
 }
-.com { color: #8fb8a3; }
-.kw  { color: var(--marcador); }
-.str { color: #b9e3a1; }
+.com { color: #64748b; font-style: italic; }
+.kw  { color: #4ade80; }
+.str { color: #fbbf24; }
+.etiqueta-codi { font-weight: 600; color: var(--titol); margin: 1.75rem 0 .5rem; }
 
-.etiqueta-codi {
-  font-size: .9rem;
-  color: var(--gris);
-  margin: 1.5rem 0 .4rem;
-}
-
-/* Ofertes de feina */
-.ofertes {
-  display: grid;
-  gap: 1rem;
-  max-width: 54rem;
-  margin: 1.5rem 0;
-}
+/* Ofertes */
+.ofertes { display: grid; gap: 1rem; margin: 1.5rem 0; }
 .oferta {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: .25rem 1.5rem;
-  background: var(--blanc);
-  border: 1px solid var(--pauta);
+  gap: .2rem 1.5rem;
+  border: 1px solid var(--linia);
   border-radius: var(--radi);
-  padding: 1.1rem 1.25rem;
+  padding: 1.25rem 1.4rem;
+  transition: border-color .15s, box-shadow .15s;
 }
-.oferta h3 { margin: 0; font-size: 1.15rem; }
+.oferta:hover { border-color: #b7dcc8; box-shadow: var(--ombra); }
+.oferta h3 { margin: 0; font-size: 1.1rem; }
 .oferta .sou {
-  font-family: var(--lletra-codi);
-  font-weight: 700;
-  color: var(--bosc);
-  background: linear-gradient(transparent 50%, rgba(242,193,78,.5) 50%);
   align-self: start;
   white-space: nowrap;
+  font-weight: 700;
+  font-size: .9rem;
+  color: var(--verd-text);
+  background: var(--verd-clar);
+  padding: .3rem .75rem;
+  border-radius: 999px;
 }
-.oferta p { margin: .3rem 0 0; grid-column: 1 / -1; font-size: .98rem; }
-.oferta .lloc { color: var(--gris); font-size: .92rem; margin: 0; grid-column: 1 / -1; }
+.oferta .lloc { grid-column: 1 / -1; margin: 0; font-size: .9rem; color: var(--text-2); }
+.oferta p { grid-column: 1 / -1; margin: .45rem 0 0; font-size: .96rem; }
 .oferta .habilitats {
   grid-column: 1 / -1;
   display: flex;
@@ -464,150 +556,290 @@ p code, li code, td code {
   gap: .4rem;
   list-style: none;
   padding: 0;
-  margin: .6rem 0 0;
+  margin: .8rem 0 0;
 }
 .oferta .habilitats li {
-  font-size: .85rem;
-  background: #eaf4ee;
-  color: var(--bosc);
-  padding: .15rem .6rem;
-  border-radius: 999px;
   margin: 0;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--xip);
+  padding: .2rem .65rem;
+  border-radius: 6px;
 }
 
 /* Bibliografia */
-.biblio { font-size: .97rem; }
-.biblio li { margin-bottom: .6rem; overflow-wrap: anywhere; }
+.biblio { font-size: .95rem; padding-left: 1.4rem; }
+.biblio li { margin-bottom: .65rem; overflow-wrap: anywhere; }
+.biblio li::marker { color: var(--text-2); font-weight: 600; }
 
-footer {
-  margin-top: 4rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--pauta);
-  color: var(--gris);
-  font-size: .9rem;
-}
-
-/* ---------- Navegació entre pàgines ---------- */
-
-.passa-pagina {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  max-width: 54rem;
-  margin: 3.5rem 0 0;
-}
-.passa-pagina a {
-  display: flex;
-  flex-direction: column;
-  gap: .15rem;
-  padding: 1rem 1.25rem;
-  background: var(--blanc);
-  border: 1px solid var(--pauta);
-  border-radius: var(--radi);
-  text-decoration: none;
-  font-family: var(--lletra-titol);
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--bosc);
-}
-.passa-pagina a span {
-  font-family: var(--lletra-text);
-  font-weight: 400;
-  font-size: .88rem;
-  color: var(--gris);
-}
-.passa-pagina a:hover { border-color: var(--fulla); }
-.passa-pagina .ant span::before { content: "‹ "; }
-.passa-pagina .seg { text-align: right; grid-column: 2; }
-.passa-pagina .seg span::after { content: " ›"; }
-
-/* Mapa de continguts a la portada */
+/* Mapa de continguts (portada) */
 .mapa {
   list-style: none;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   gap: .75rem;
-  max-width: 60rem !important;
+  max-width: none !important;
   counter-reset: mapa;
 }
 .mapa li { margin: 0; counter-increment: mapa; }
 .mapa a {
   display: flex;
-  gap: .75rem;
-  align-items: baseline;
-  padding: .85rem 1rem;
-  background: var(--blanc);
-  border: 1px solid var(--pauta);
-  border-left: 4px solid var(--fulla);
-  border-radius: var(--radi);
+  align-items: center;
+  gap: .8rem;
+  height: 100%;
+  padding: .9rem 1rem;
+  border: 1px solid var(--linia);
+  border-radius: 10px;
   text-decoration: none;
-  color: var(--bosc);
+  color: var(--titol);
   font-weight: 600;
+  transition: border-color .15s, background .15s;
 }
 .mapa a::before {
-  content: counter(mapa, decimal-leading-zero);
-  font-family: var(--lletra-codi);
-  font-size: .85rem;
-  color: var(--fulla);
+  content: counter(mapa);
+  flex: 0 0 1.8rem;
+  height: 1.8rem;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: var(--verd-clar);
+  color: var(--verd-text);
+  font-size: .8rem;
+  font-weight: 700;
 }
-.mapa a:hover { border-left-color: var(--marcador); }
+.mapa a:hover { border-color: var(--verd); background: var(--superficie-2); }
+
+/* Anterior / Següent */
+.passa-pagina {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.passa-pagina a {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  padding: 1.1rem 1.35rem;
+  background: var(--blanc);
+  border: 1px solid var(--linia);
+  border-radius: var(--radi);
+  text-decoration: none;
+  color: var(--titol);
+  font-weight: 700;
+  font-size: 1.08rem;
+  box-shadow: var(--ombra);
+  transition: border-color .15s;
+}
+.passa-pagina a span { font-weight: 500; font-size: .85rem; color: var(--text-2); }
+.passa-pagina a:hover { border-color: var(--verd); }
+.passa-pagina .ant span::before { content: "← "; }
+.passa-pagina .seg { text-align: right; grid-column: 2; }
+.passa-pagina .seg span::after { content: " →"; }
 
 .peu {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--pauta);
-  color: var(--gris);
-  font-size: .9rem;
-  max-width: 54rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--linia);
+  color: var(--text-2);
+  font-size: .85rem;
+  text-align: center;
 }
 
-/* A les pàgines interiors la secció obre la pàgina */
-main > section.seccio:first-child { margin-top: 3rem; }
+/* ---------------- Barra de progrés i botó amunt ---------------- */
+.progres { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 80; pointer-events: none; }
+.progres span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--verd), #3ddc8f); }
 
-/* ---------- Responsive ---------- */
+.amunt {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 55;
+  width: 2.9rem; height: 2.9rem; border-radius: 50%;
+  border: 1px solid var(--linia); background: var(--blanc); color: var(--titol);
+  font-size: 1.2rem; font-weight: 700; cursor: pointer; box-shadow: var(--ombra);
+  opacity: 0; transform: translateY(10px); pointer-events: none;
+  transition: opacity .2s, transform .2s;
+}
+.amunt.visible { opacity: 1; transform: none; pointer-events: auto; }
+.amunt:hover { border-color: var(--verd); }
+
+/* ---------------- Cercador ---------------- */
+.visualment-amagat { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.cerca { position: relative; margin: 0 0 1.25rem; }
+.cerca input {
+  width: 100%;
+  padding: .65rem .9rem .65rem 2.3rem;
+  border: 1px solid var(--linia);
+  border-radius: 10px;
+  background: var(--blanc) no-repeat .8rem center / 1rem
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E");
+  color: var(--text);
+  font: inherit;
+  font-size: .92rem;
+}
+.cerca input:focus { outline: none; border-color: var(--verd); box-shadow: 0 0 0 3px var(--verd-clar); }
+.resultats {
+  list-style: none; margin: .4rem 0 0; padding: .35rem;
+  background: var(--blanc); border: 1px solid var(--linia); border-radius: 10px; box-shadow: var(--ombra);
+  max-height: 22rem; overflow-y: auto;
+}
+.resultats li { margin: 0; }
+.resultats a {
+  display: block; padding: .6rem .65rem; border-radius: 8px;
+  text-decoration: none; color: var(--text); font-size: .85rem; line-height: 1.4;
+}
+.resultats a::before { display: none; }
+.resultats a:hover, .resultats a:focus { background: var(--verd-clar); }
+.resultats strong { display: block; color: var(--titol); font-size: .9rem; }
+.resultats span { display: block; color: var(--text-2); margin: .15rem 0; }
+.resultats em { font-style: normal; font-size: .75rem; color: var(--verd-text); font-weight: 600; }
+.resultats .buit { padding: .6rem; color: var(--text-2); font-size: .85rem; }
+.index .resultats a:not(.marca)::before { display: none; }
+.index .resultats a:not(.marca) { display: block; }
+
+/* ---------------- Eines del lateral ---------------- */
+.eines { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--linia); display: grid; gap: .5rem; }
+.eines button {
+  display: flex; align-items: center; gap: .6rem;
+  padding: .6rem .8rem; border-radius: 8px;
+  border: 1px solid var(--linia); background: var(--blanc); color: var(--text);
+  font: 500 .9rem var(--lletra); cursor: pointer; text-align: left;
+}
+.eines button:hover { border-color: var(--verd); }
+.eines button[aria-pressed="true"] { background: var(--verd-clar); border-color: var(--verd); color: var(--titol); }
+.eines .ic { flex: 0 0 18px; color: var(--verd-text); }
+.dreceres { font-size: .78rem; color: var(--text-2); margin: .4rem 0 0; }
+kbd {
+  font: 600 .72rem var(--lletra-codi); padding: .05rem .35rem;
+  border: 1px solid var(--linia); border-bottom-width: 2px; border-radius: 4px; background: var(--blanc);
+}
+.index .autors .curs { color: var(--verd-text); font-weight: 600; }
+
+/* ---------------- Mode presentació ---------------- */
+body.mode-presentacio { font-size: 1.22rem; }
+body.mode-presentacio .pagina { grid-template-columns: 1fr; }
+body.mode-presentacio .index,
+body.mode-presentacio .boto-menu { display: none; }
+body.mode-presentacio main > * { max-width: 72rem; }
+body.mode-presentacio .seccio p,
+body.mode-presentacio .seccio ul,
+body.mode-presentacio .seccio ol { max-width: 60rem; }
+body.mode-presentacio .seccio > h2 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); }
+body.mode-presentacio::after {
+  content: "Mode presentació · ← → canvia de pàgina · Esc per sortir";
+  position: fixed; left: 50%; bottom: 1rem; transform: translateX(-50%);
+  background: var(--fosc); color: #fff; font-size: .8rem; padding: .45rem 1rem; border-radius: 999px;
+  opacity: .85; pointer-events: none; z-index: 70;
+}
+
+/* ---------------- Botó copiar codi ---------------- */
+pre { position: relative; }
+.copia {
+  position: absolute; top: .6rem; right: .6rem;
+  padding: .3rem .7rem; border-radius: 6px;
+  border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.08);
+  color: #e2e8f0; font: 600 .75rem var(--lletra); cursor: pointer;
+}
+.copia:hover { background: rgba(255,255,255,.16); }
+
+/* ---------------- Calculadora ---------------- */
+.calculadora {
+  border: 1px solid var(--linia); border-radius: var(--radi);
+  padding: 1.5rem; margin: 1.25rem 0; background: var(--superficie-2);
+}
+.calc-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-bottom: 1.5rem; }
+.calc-controls label { font-weight: 600; color: var(--titol); min-width: 7.5rem; }
+.calc-controls output { color: var(--verd-text); font-size: 1.2rem; }
+.calc-controls input[type="range"] { flex: 1 1 14rem; accent-color: var(--verd); }
+.commutador { display: inline-flex; background: var(--xip); padding: .25rem; border-radius: 10px; gap: .25rem; }
+.commutador button, .filtre button {
+  border: 0; background: transparent; color: var(--text-2);
+  padding: .45rem .85rem; border-radius: 8px; font: 600 .85rem var(--lletra); cursor: pointer;
+}
+.commutador button.actiu { background: var(--blanc); color: var(--titol); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.calc-resultats { display: grid; gap: .8rem; }
+.calc-fila { display: grid; grid-template-columns: 13rem 1fr 7.5rem; align-items: center; gap: 1rem; font-size: .95rem; }
+.calc-fila strong { text-align: right; color: var(--titol); font-variant-numeric: tabular-nums; }
+.calc-barra { height: .9rem; background: var(--xip); border-radius: 999px; overflow: hidden; }
+.calc-barra i { display: block; height: 100%; width: 0; background: #94a3b8; border-radius: 999px; transition: width .35s ease; }
+.calc-fila.sage i { background: var(--verd); }
+.calc-fila.sage span { font-weight: 700; color: var(--titol); }
+.calc-nota { font-size: .9rem; color: var(--text-2); margin: 1.25rem 0 0; }
+
+/* ---------------- Ofertes: xifres i filtre ---------------- */
+.xifres-feina { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
+.xifres-feina div { border: 1px solid var(--linia); border-radius: var(--radi); padding: 1rem 1.2rem; background: var(--superficie-2); }
+.xifres-feina strong { display: block; font-family: var(--lletra-titol); font-size: 1.7rem; color: var(--verd-text); line-height: 1.2; }
+.xifres-feina span { font-size: .88rem; color: var(--text-2); }
+.filtre { display: inline-flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .5rem; }
+.filtre button { background: var(--xip); }
+.filtre button.actiu { background: var(--verd); color: #fff; }
+.oferta[hidden] { display: none; }
+.oferta.destacada { border-color: var(--verd); box-shadow: 0 0 0 3px var(--verd-clar); }
+.nou {
+  display: inline-block; margin-left: .35rem; padding: .05rem .5rem; border-radius: 999px;
+  background: var(--verd); color: #fff; font-size: .7rem; font-weight: 700; vertical-align: middle;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 1000px) {
+  .xifres { grid-template-columns: repeat(2, 1fr); }
+}
 
 @media (max-width: 900px) {
   .pagina { grid-template-columns: 1fr; }
+  main { padding-top: 1rem; }
 
   .index {
     position: fixed;
-    inset: 0 30% 0 0;
+    inset: 0 auto 0 0;
+    width: min(18rem, 85vw);
     z-index: 50;
     transform: translateX(-105%);
     transition: transform .25s ease;
-    box-shadow: 10px 0 30px rgba(0,0,0,.25);
+    box-shadow: 10px 0 40px rgba(15, 23, 42, .2);
   }
   .index.obert { transform: translateX(0); }
 
   .boto-menu {
     display: inline-flex;
-    align-items: center;
-    gap: .5rem;
     position: fixed;
     right: 1rem;
     bottom: 1rem;
     z-index: 60;
-    background: var(--bosc);
-    color: var(--blanc);
+    background: var(--fosc);
+    color: #fff;
     border: 0;
     border-radius: 999px;
-    padding: .75rem 1.1rem;
-    font: 600 1rem var(--lletra-text);
-    box-shadow: 0 8px 20px rgba(15,61,46,.35);
+    padding: .8rem 1.25rem;
+    font: 600 1rem var(--lletra);
+    box-shadow: 0 10px 25px rgba(11, 46, 34, .35);
     cursor: pointer;
   }
 
-  .portada { padding-top: 2.5rem; }
+  .portada { border-radius: 16px; }
   .fitxa { grid-template-columns: 1fr; }
   .fitxa dt { border-bottom: 0; padding-bottom: .1rem; }
   .oferta { grid-template-columns: 1fr; }
+  .oferta .sou { justify-self: start; }
   .passa-pagina { grid-template-columns: 1fr; }
   .passa-pagina .seg { grid-column: 1; }
+  .amunt { bottom: 4.75rem; }
+  .calc-fila { grid-template-columns: 1fr auto; }
+  .calc-fila .calc-barra { grid-column: 1 / -1; order: 3; }
+  .xifres-feina { grid-template-columns: 1fr; }
+  .index { background: var(--blanc); }
+}
+
+@media (max-width: 520px) {
+  .xifres { grid-template-columns: 1fr 1fr; }
+  .xifres dd { font-size: 1.15rem; }
 }
 
 @media print {
-  .index, .boto-menu, .passa-pagina { display: none; }
+  .index, .boto-menu, .passa-pagina, .amunt, .progres, .copia { display: none; }
   .pagina { display: block; }
-  body { background: none; }
+  body { background: #fff; }
+  .seccio { box-shadow: none; }
 }

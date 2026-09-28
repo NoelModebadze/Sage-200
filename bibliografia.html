@@ -8,14 +8,20 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 </head>
-<body>
+<body data-anterior="avantatges.html" data-seguent="">
 <a class="salta" href="#contingut">Salta al contingut</a>
+<div class="progres" aria-hidden="true"><span></span></div>
 
 <div class="pagina">
 
   <nav class="index" aria-label="Índex del treball">
-    <a class="marca" href="index.html">Sage 200</a>
-    <p class="autors">Nom Cognom 1 i Nom Cognom 2<br>Curs 2026-27</p>
+    <a class="marca" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#00a35c"/><rect x="8" y="8" width="7" height="7" rx="1.5" fill="#fff"/><rect x="17" y="8" width="7" height="7" rx="1.5" fill="#fff" opacity=".6"/><rect x="8" y="17" width="7" height="7" rx="1.5" fill="#fff" opacity=".6"/><rect x="17" y="17" width="7" height="7" rx="1.5" fill="#fff"/></svg><span>Sage 200</span></a>
+    <p class="autors">Noel Modebadze<br>Guillem Palahi<br><span class="curs">DAM · 2026-27</span></p>
+    <div class="cerca">
+      <label for="cerca" class="visualment-amagat">Cerca al treball</label>
+      <input type="search" id="cerca" placeholder="Cerca al treball…" autocomplete="off">
+      <ul id="resultats" class="resultats" hidden></ul>
+    </div>
     <ol>
       <li><a href="index.html">Introducció</a></li>
       <li><a href="informacio.html">Informació general</a></li>
@@ -28,6 +34,11 @@
       <li><a href="avantatges.html">Avantatges i inconvenients</a></li>
       <li><a href="bibliografia.html" class="actiu" aria-current="page">Bibliografia</a></li>
     </ol>
+    <div class="eines">
+      <button type="button" id="boto-tema" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> <span class="txt">Mode fosc</span></button>
+      <button type="button" id="boto-presentacio" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Mode presentació</button>
+      <p class="dreceres">Tecles <kbd>←</kbd> <kbd>→</kbd> per canviar de pàgina</p>
+    </div>
   </nav>
   <button class="boto-menu" type="button" aria-expanded="false">Índex</button>
 
@@ -48,8 +59,19 @@
         <li>InfoJobs. <em>Ofertas de trabajo "sage 200"</em>. <a target="_blank" rel="noopener" href="https://www.infojobs.net/ofertas-trabajo/sage-200">https://www.infojobs.net/ofertas-trabajo/sage-200</a></li>
         <li>Iberempleos / Asaja. <em>Controller con inglés – Barcelona</em>. <a target="_blank" rel="noopener" href="https://asaja.iberempleos.es/oferta-empleo/barcelona/controller-con-ingles-7710806">asaja.iberempleos.es</a></li>
         <li>IT Jobs Watch. <em>Sage 200 Developer – TSG</em>. <a target="_blank" rel="noopener" href="https://www.itjobswatch.co.uk/jv/TSG/Sage-200-Developer-Job-Chester-Cheshire-UK-4w8jsh">itjobswatch.co.uk</a></li>
-        <li>Odoo S.A. <em>Preus d'Odoo</em>. <a target="_blank" rel="noopener" href="https://www.odoo.com/pricing">https://www.odoo.com/pricing</a></li>
-        <li>Microsoft. <em>Dynamics 365 Business Central – Pricing</em>. <a target="_blank" rel="noopener" href="https://www.microsoft.com/dynamics-365/products/business-central/pricing">microsoft.com</a></li>
+        <li>Odoo S.A. <em>Preus d'Odoo</em>. <a target="_blank" rel="noopener" href="https://www.odoo.com/es_ES/pricing">https://www.odoo.com/es_ES/pricing</a></li>
+        <li>Microsoft. <em>Dynamics 365 Business Central – Pricing</em>. <a target="_blank" rel="noopener" href="https://www.microsoft.com/es-es/dynamics-365/products/business-central/pricing">microsoft.com</a></li>
+        <li>Sage Community Hub. <em>Nueva versión Sage200 | 2026.86.000</em>. <a target="_blank" rel="noopener" href="https://communityhub.sage.com/es/sage-200/f/anuncios/273755/nueva-version-sage200-2026-86-000">communityhub.sage.com</a></li>
+        <li>Sage Knowledge Base. <em>Sage 200 – Hardware, Software y Requisitos mínimos</em> (juny de 2026). <a target="_blank" rel="noopener" href="https://es-kb.sage.com/portal/app/portlets/results/viewsolution.jsp?solutionid=231120112252850&amp;page=1&amp;position=0&amp;q=requisitos">es-kb.sage.com</a></li>
+        <li>Sage. <em>Sage 200 – Configuración recomendada</em> (PDF, 2025.11). <a target="_blank" rel="noopener" href="https://sage200c.sage.es/help/Sage200_RequerimientosHW_2025.11.pdf">sage200c.sage.es</a></li>
+        <li>Sage Community Hub. <em>Instalación servidor app + SQL</em>. <a target="_blank" rel="noopener" href="https://communityhub.sage.com/es/sage-200/f/discusion-general/203652/instalacion-servidor-app-sql">communityhub.sage.com</a></li>
+        <li>Softwaredoit. <em>Sage lanza Sage 200 Edición Advanced</em> (2020). <a target="_blank" rel="noopener" href="https://www.softwaredoit.es/actualidad/sage-version-sage-200-edicion-advanced.html">softwaredoit.es</a></li>
+        <li>Wikipedia. <em>Sage Group</em>. <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sage_Group">en.wikipedia.org</a></li>
+        <li>Microsoft Learn. <em>Development in AL</em>. <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-au/dynamics365/business-central/dev-itpro/developer/devenv-dev-overview">learn.microsoft.com</a></li>
+        <li>ERP-PGI. <em>Odoo Prix en 2026</em>. <a target="_blank" rel="noopener" href="https://erp-pgi.fr/odoo-tarif/">erp-pgi.fr</a></li>
+        <li>OEC.sh. <em>Odoo Pricing in Spain (2026)</em>. <a target="_blank" rel="noopener" href="https://oec.sh/odoo-pricing/spain">oec.sh</a></li>
+        <li>Iberempleos. <em>Ofertas de empleo de Sage</em>. <a target="_blank" rel="noopener" href="https://www.iberempleos.es/ofertas-empleo/----sage">iberempleos.es</a></li>
+        <li>Opentix. <em>Partner Sage 200 Girona</em>. <a target="_blank" rel="noopener" href="https://www.opentix.es/oficina/partner-sage-200-girona/">opentix.es</a></li>
         <li>Eines d'IA utilitzades com a suport per a la cerca d'informació i la maquetació (Claude, Anthropic), amb verificació posterior de les fonts.</li>
       </ol>
     </section>
@@ -65,6 +87,8 @@
   </main>
 </div>
 
+<button type="button" class="amunt" aria-label="Torna a dalt">↑</button>
+<script src="js/cerca-index.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

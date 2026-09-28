@@ -8,14 +8,20 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 </head>
-<body>
+<body data-anterior="index.html" data-seguent="llicencies.html">
 <a class="salta" href="#contingut">Salta al contingut</a>
+<div class="progres" aria-hidden="true"><span></span></div>
 
 <div class="pagina">
 
   <nav class="index" aria-label="Índex del treball">
-    <a class="marca" href="index.html">Sage 200</a>
-    <p class="autors">Nom Cognom 1 i Nom Cognom 2<br>Curs 2026-27</p>
+    <a class="marca" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#00a35c"/><rect x="8" y="8" width="7" height="7" rx="1.5" fill="#fff"/><rect x="17" y="8" width="7" height="7" rx="1.5" fill="#fff" opacity=".6"/><rect x="8" y="17" width="7" height="7" rx="1.5" fill="#fff" opacity=".6"/><rect x="17" y="17" width="7" height="7" rx="1.5" fill="#fff"/></svg><span>Sage 200</span></a>
+    <p class="autors">Noel Modebadze<br>Guillem Palahi<br><span class="curs">DAM · 2026-27</span></p>
+    <div class="cerca">
+      <label for="cerca" class="visualment-amagat">Cerca al treball</label>
+      <input type="search" id="cerca" placeholder="Cerca al treball…" autocomplete="off">
+      <ul id="resultats" class="resultats" hidden></ul>
+    </div>
     <ol>
       <li><a href="index.html">Introducció</a></li>
       <li><a href="informacio.html" class="actiu" aria-current="page">Informació general</a></li>
@@ -28,6 +34,11 @@
       <li><a href="avantatges.html">Avantatges i inconvenients</a></li>
       <li><a href="bibliografia.html">Bibliografia</a></li>
     </ol>
+    <div class="eines">
+      <button type="button" id="boto-tema" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> <span class="txt">Mode fosc</span></button>
+      <button type="button" id="boto-presentacio" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Mode presentació</button>
+      <p class="dreceres">Tecles <kbd>←</kbd> <kbd>→</kbd> per canviar de pàgina</p>
+    </div>
   </nav>
   <button class="boto-menu" type="button" aria-expanded="false">Índex</button>
 
@@ -44,62 +55,62 @@
         <div class="llenc">
           <svg viewBox="0 0 900 250" role="img" aria-labelledby="t-crono">
             <title id="t-crono">Línia temporal de Sage 200</title>
-            <line x1="40" y1="120" x2="870" y2="120" stroke="#0f3d2e" stroke-width="3"/>
+            <line x1="40" y1="120" x2="870" y2="120" stroke="#0b2e22" stroke-width="3"/>
             <!-- fites -->
-            <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#16241e">
-              <circle cx="60" cy="120" r="9" fill="#0f3d2e"/>
+            <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#1e293b">
+              <circle cx="60" cy="120" r="9" fill="#0b2e22"/>
               <text x="60" y="95" text-anchor="middle" font-weight="700" font-size="17">1981</text>
               <text x="60" y="150" text-anchor="middle">Neix Sage</text>
               <text x="60" y="168" text-anchor="middle">a Newcastle</text>
 
-              <circle cx="190" cy="120" r="9" fill="#1f7a52"/>
-              <text x="190" y="95" text-anchor="middle" font-weight="700" font-size="17">anys 90</text>
+              <circle cx="190" cy="120" r="9" fill="#00a35c"/>
+              <text x="190" y="95" text-anchor="middle" font-weight="700" font-size="17">abans 2001</text>
               <text x="190" y="150" text-anchor="middle">Logic Control</text>
               <text x="190" y="168" text-anchor="middle">de Sabadell</text>
 
-              <circle cx="320" cy="120" r="9" fill="#1f7a52"/>
+              <circle cx="320" cy="120" r="9" fill="#00a35c"/>
               <text x="320" y="95" text-anchor="middle" font-weight="700" font-size="17">2001</text>
               <text x="320" y="150" text-anchor="middle">Logic Class,</text>
               <text x="320" y="168" text-anchor="middle">1r ERP integrat</text>
 
-              <circle cx="450" cy="120" r="9" fill="#0f3d2e"/>
+              <circle cx="450" cy="120" r="9" fill="#0b2e22"/>
               <text x="450" y="95" text-anchor="middle" font-weight="700" font-size="17">2005</text>
               <text x="450" y="150" text-anchor="middle">Sage compra</text>
               <text x="450" y="168" text-anchor="middle">Logic Control</text>
 
-              <circle cx="580" cy="120" r="9" fill="#1f7a52"/>
-              <text x="580" y="95" text-anchor="middle" font-weight="700" font-size="17">finals 2000</text>
+              <circle cx="580" cy="120" r="9" fill="#00a35c"/>
+              <text x="580" y="95" text-anchor="middle" font-weight="700" font-size="17">2005 →</text>
               <text x="580" y="150" text-anchor="middle">Sage Murano</text>
               <text x="580" y="168" text-anchor="middle">(líder a Espanya)</text>
 
-              <circle cx="710" cy="120" r="9" fill="#1f7a52"/>
+              <circle cx="710" cy="120" r="9" fill="#00a35c"/>
               <text x="710" y="95" text-anchor="middle" font-weight="700" font-size="17">2016</text>
               <text x="710" y="150" text-anchor="middle">Sage 200c,</text>
               <text x="710" y="168" text-anchor="middle">nova interfície</text>
 
-              <circle cx="850" cy="120" r="12" fill="#f2c14e" stroke="#0f3d2e" stroke-width="3"/>
+              <circle cx="850" cy="120" r="12" fill="#00d17a" stroke="#0b2e22" stroke-width="3"/>
               <text x="850" y="95" text-anchor="middle" font-weight="700" font-size="17">2020</text>
               <text x="850" y="150" text-anchor="middle">Passa a dir-se</text>
               <text x="850" y="168" text-anchor="middle">"Sage 200"</text>
             </g>
-            <text x="450" y="225" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#5b6b63">Avui: edicions Sage 200 Extra, Advanced i Smart Business, amb connexió al núvol i funcions d'IA</text>
+            <text x="450" y="225" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#64748b">Avui: edicions Sage 200 Extra, Advanced i Smart Business, amb connexió al núvol i funcions d'IA</text>
           </svg>
         </div>
         <figcaption>Figura 1. Evolució del producte des de Logic Class fins a l'actual Sage 200.</figcaption>
       </figure>
 
-      <p>En resum: Logic Control comercialitzava el popular <em>Logic Win</em>; el 2001 va llançar <em>Logic Class</em>, el seu primer ERP realment integrat. Després de la compra per part de Sage (2005), el producte es va rebatejar com a <em>Sage Murano</em>, que va arribar a ser líder del mercat espanyol de programari de gestió. El 2016 Sage va presentar <em>Sage 200c</em> com a evolució natural de Murano, amb una interfície nova, i va fer campanya perquè els clients migressin. Més endavant es va anomenar <em>Sage 200cloud</em> i, des de l'1 d'octubre de 2020, simplement <strong>Sage 200</strong>.</p>
+      <p>En resum: Logic Control comercialitzava el popular <em>Logic Win</em>; el 2001 va llançar <em>Logic Class</em>, el seu primer ERP realment integrat. Després de la compra per part de Sage (2005), que li va donar una quota del 55% del mercat espanyol de programes de gestió, el producte es va rebatejar com a <em>Sage Murano</em>. El 2016 Sage va presentar <em>Sage 200c</em> com a evolució natural de Murano, amb una interfície nova, i va fer campanya perquè els clients migressin. Més endavant es va anomenar <em>Sage 200cloud</em> i, des de l'1 d'octubre de 2020, simplement <strong>Sage 200</strong>.</p>
 
       <h3>Fitxa tècnica</h3>
       <dl class="fitxa">
         <dt>Primera versió</dt>
         <dd>2001 com a Logic Class (antecessor directe). Amb el nom Sage 200c, 2016.</dd>
         <dt>Versió estable</dt>
-        <dd>Sage 200 s'actualitza de manera contínua amb el servei <em>LiveUpdate</em>; les versions es numeren per any (p. ex. 2026.xx). Cal comprovar el número exacte al portal de Sage abans de la presentació.</dd>
+        <dd><strong>2026.86.000</strong> (setembre de 2026). Cada any Sage publica una versió <em>master</em> (2026.00.000) i després actualitzacions freqüents que s'instal·len automàticament amb <em>LiveUpdate</em>.</dd>
         <dt>Llenguatges</dt>
         <dd>Tecnologia Microsoft: Visual Basic i .NET Framework (actualment requereix la versió 4.8), T-SQL per a la capa de dades i HTML/JavaScript en els serveis web i connectors al núvol.</dd>
         <dt>Plataformes</dt>
-        <dd>Client d'escriptori per a <strong>Windows</strong> (Windows 10/11) i servidor Windows Server 2016, 2019 o 2022. No hi ha versió nativa per a Linux ni macOS: des d'aquests sistemes s'hi accedeix per navegador o escriptori remot en les modalitats al núvol.</dd>
+        <dd>Sistemes homologats: <strong>Windows 11</strong> i <strong>Windows Server 2019, 2022 o 2025</strong>, amb .NET Framework 4.8. No hi ha versió nativa per a Linux ni macOS: segons Sage, en la modalitat al núvol s'hi accedeix des de qualsevol PC (Windows o Mac) i tauletes (iPad o Android) a través del navegador.</dd>
         <dt>Idioma i legislació</dt>
         <dd>Pensat per a la normativa espanyola (models d'Hisenda, SII, facturació electrònica). Disponible en castellà.</dd>
         <dt>Públic objectiu</dt>
@@ -115,55 +126,55 @@
             <title id="t-arq">Diagrama d'arquitectura de Sage 200</title>
             <defs>
               <marker id="fletxa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0,0 L10,5 L0,10 z" fill="#1f7a52"/>
+                <path d="M0,0 L10,5 L0,10 z" fill="#00a35c"/>
               </marker>
             </defs>
             <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
               <!-- capçaleres de capa -->
-              <text x="120" y="30" text-anchor="middle" font-weight="700" font-size="16" fill="#0f3d2e">Presentació</text>
-              <text x="450" y="30" text-anchor="middle" font-weight="700" font-size="16" fill="#0f3d2e">Lògica de negoci</text>
-              <text x="780" y="30" text-anchor="middle" font-weight="700" font-size="16" fill="#0f3d2e">Dades</text>
+              <text x="120" y="30" text-anchor="middle" font-weight="700" font-size="16" fill="#0b2e22">Presentació</text>
+              <text x="450" y="30" text-anchor="middle" font-weight="700" font-size="16" fill="#0b2e22">Lògica de negoci</text>
+              <text x="780" y="30" text-anchor="middle" font-weight="700" font-size="16" fill="#0b2e22">Dades</text>
 
               <!-- clients -->
-              <rect x="20" y="50" width="200" height="60" rx="6" fill="#fff" stroke="#0f3d2e" stroke-width="2"/>
+              <rect x="20" y="50" width="200" height="60" rx="6" fill="#fff" stroke="#0b2e22" stroke-width="2"/>
               <text x="120" y="77" text-anchor="middle" font-size="15" font-weight="600">Client d'escriptori</text>
-              <text x="120" y="97" text-anchor="middle" font-size="13" fill="#5b6b63">Windows · .NET 4.8</text>
+              <text x="120" y="97" text-anchor="middle" font-size="13" fill="#64748b">Windows · .NET 4.8</text>
 
-              <rect x="20" y="130" width="200" height="60" rx="6" fill="#fff" stroke="#0f3d2e" stroke-width="2"/>
+              <rect x="20" y="130" width="200" height="60" rx="6" fill="#fff" stroke="#0b2e22" stroke-width="2"/>
               <text x="120" y="157" text-anchor="middle" font-size="15" font-weight="600">Navegador / RDP</text>
-              <text x="120" y="177" text-anchor="middle" font-size="13" fill="#5b6b63">modalitat al núvol</text>
+              <text x="120" y="177" text-anchor="middle" font-size="13" fill="#64748b">modalitat al núvol</text>
 
-              <rect x="20" y="210" width="200" height="60" rx="6" fill="#fff" stroke="#0f3d2e" stroke-width="2"/>
+              <rect x="20" y="210" width="200" height="60" rx="6" fill="#fff" stroke="#0b2e22" stroke-width="2"/>
               <text x="120" y="237" text-anchor="middle" font-size="15" font-weight="600">Microsoft 365 i apps</text>
-              <text x="120" y="257" text-anchor="middle" font-size="13" fill="#5b6b63">Outlook, Excel, mòbil</text>
+              <text x="120" y="257" text-anchor="middle" font-size="13" fill="#64748b">Outlook, Excel, mòbil</text>
 
               <!-- lògica -->
-              <rect x="330" y="50" width="240" height="140" rx="6" fill="#0f3d2e"/>
+              <rect x="330" y="50" width="240" height="140" rx="6" fill="#0b2e22"/>
               <text x="450" y="85" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Motor Sage 200</text>
-              <text x="450" y="110" text-anchor="middle" font-size="13" fill="#cfe6da">Mòduls: comptabilitat, gestió,</text>
-              <text x="450" y="128" text-anchor="middle" font-size="13" fill="#cfe6da">laboral, CRM, producció…</text>
-              <text x="450" y="155" text-anchor="middle" font-size="13" fill="#cfe6da">Personalitzacions i scripts</text>
-              <text x="450" y="173" text-anchor="middle" font-size="13" fill="#cfe6da">LiveUpdate</text>
+              <text x="450" y="110" text-anchor="middle" font-size="13" fill="#cde8d9">Mòduls: comptabilitat, gestió,</text>
+              <text x="450" y="128" text-anchor="middle" font-size="13" fill="#cde8d9">laboral, CRM, producció…</text>
+              <text x="450" y="155" text-anchor="middle" font-size="13" fill="#cde8d9">Personalitzacions i scripts</text>
+              <text x="450" y="173" text-anchor="middle" font-size="13" fill="#cde8d9">LiveUpdate</text>
 
-              <rect x="330" y="210" width="240" height="60" rx="6" fill="#fff" stroke="#1f7a52" stroke-width="2" stroke-dasharray="6 4"/>
+              <rect x="330" y="210" width="240" height="60" rx="6" fill="#fff" stroke="#00a35c" stroke-width="2" stroke-dasharray="6 4"/>
               <text x="450" y="237" text-anchor="middle" font-size="15" font-weight="600">Serveis al núvol (Azure)</text>
-              <text x="450" y="257" text-anchor="middle" font-size="13" fill="#5b6b63">API, bancs, IA, e-commerce</text>
+              <text x="450" y="257" text-anchor="middle" font-size="13" fill="#64748b">API, bancs, IA, e-commerce</text>
 
               <!-- dades -->
-              <path d="M700 70 a80 18 0 0 0 160 0 a80 18 0 0 0 -160 0 v120 a80 18 0 0 0 160 0 v-120" fill="#d7ede1" stroke="#0f3d2e" stroke-width="2"/>
-              <text x="780" y="125" text-anchor="middle" font-size="16" font-weight="700" fill="#0f3d2e">SQL Server</text>
-              <text x="780" y="147" text-anchor="middle" font-size="13" fill="#16241e">BD d'empreses</text>
-              <text x="780" y="165" text-anchor="middle" font-size="13" fill="#16241e">+ BD de configuració</text>
+              <path d="M700 70 a80 18 0 0 0 160 0 a80 18 0 0 0 -160 0 v120 a80 18 0 0 0 160 0 v-120" fill="#e3efe8" stroke="#0b2e22" stroke-width="2"/>
+              <text x="780" y="125" text-anchor="middle" font-size="16" font-weight="700" fill="#0b2e22">SQL Server</text>
+              <text x="780" y="147" text-anchor="middle" font-size="13" fill="#1e293b">Base de dades SAGE</text>
+              <text x="780" y="165" text-anchor="middle" font-size="13" fill="#1e293b">+ dades de cada empresa</text>
 
               <!-- fletxes -->
-              <line x1="222" y1="80" x2="326" y2="100" stroke="#1f7a52" stroke-width="2" marker-end="url(#fletxa)" marker-start="url(#fletxa)"/>
-              <line x1="222" y1="160" x2="326" y2="140" stroke="#1f7a52" stroke-width="2" marker-end="url(#fletxa)" marker-start="url(#fletxa)"/>
-              <line x1="222" y1="240" x2="326" y2="240" stroke="#1f7a52" stroke-width="2" marker-end="url(#fletxa)" marker-start="url(#fletxa)"/>
-              <line x1="450" y1="192" x2="450" y2="206" stroke="#1f7a52" stroke-width="2" marker-end="url(#fletxa)" marker-start="url(#fletxa)"/>
-              <line x1="572" y1="120" x2="696" y2="120" stroke="#1f7a52" stroke-width="2" marker-end="url(#fletxa)" marker-start="url(#fletxa)"/>
-              <text x="634" y="110" text-anchor="middle" font-size="12" fill="#5b6b63">T-SQL</text>
+              <line x1="222" y1="80" x2="326" y2="100" stroke="#00a35c" stroke-width="2" marker-end="url(#fletxa)" marker-start="url(#fletxa)"/>
+              <line x1="222" y1="160" x2="326" y2="140" stroke="#00a35c" stroke-width="2" marker-end="url(#fletxa)" marker-start="url(#fletxa)"/>
+              <line x1="222" y1="240" x2="326" y2="240" stroke="#00a35c" stroke-width="2" marker-end="url(#fletxa)" marker-start="url(#fletxa)"/>
+              <line x1="450" y1="192" x2="450" y2="206" stroke="#00a35c" stroke-width="2" marker-end="url(#fletxa)" marker-start="url(#fletxa)"/>
+              <line x1="572" y1="120" x2="696" y2="120" stroke="#00a35c" stroke-width="2" marker-end="url(#fletxa)" marker-start="url(#fletxa)"/>
+              <text x="634" y="110" text-anchor="middle" font-size="12" fill="#64748b">T-SQL</text>
             </g>
-            <text x="450" y="330" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#5b6b63">Model client-servidor: cada client es connecta al mateix servidor SQL, on viuen les dades de totes les empreses.</text>
+            <text x="450" y="330" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#64748b">Model client-servidor: cada client es connecta al mateix servidor SQL, on viuen les dades de totes les empreses.</text>
           </svg>
         </div>
         <figcaption>Figura 2. Arquitectura simplificada de Sage 200 (elaboració pròpia).</figcaption>
@@ -173,7 +184,9 @@
       <ul>
         <li><strong>Multiempresa</strong>: una sola instal·lació pot gestionar diverses empreses, cadascuna identificada per un codi d'empresa dins la base de dades.</li>
         <li><strong>Ecosistema de partners</strong>: la venda, instal·lació i personalització es fa sobretot a través de distribuïdors autoritzats (a les comarques gironines i a Barcelona n'hi ha diversos).</li>
-        <li><strong>Edicions actuals</strong>: Sage 200 Extra (al núvol), Sage 200 Advanced (més complet, instal·lació local o al núvol) i Sage 200 Smart Business (nova edició amb mobilitat i IA).</li>
+        <li><strong>Edicions actuals</strong> (web de Sage, setembre de 2026): Sage 200 Extra, Sage 200 Smart Business i la nova Sage 200 Smart Business Complete. Els partners també comercialitzen <em>Sage 200 Edició Advanced</em>, llançada el desembre de 2020 amb l'assistent intel·ligent Alisio.</li>
+        <li><strong>La companyia</strong>: The Sage Group cotitza a la Borsa de Londres (índex FTSE 100). El 2025 va facturar 2.513 milions de lliures i tenia 11.074 empleats.</li>
+        <li><strong>Herència de Murano</strong>: encara avui la carpeta d'instal·lació es diu <code>Sage Data\Sage Murano</code>, i l'instal·lador crea un usuari de SQL anomenat <code>Logic</code> (el nom recorda l'antiga Logic Control).</li>
       </ul>
     </section>
 
@@ -188,6 +201,8 @@
   </main>
 </div>
 
+<button type="button" class="amunt" aria-label="Torna a dalt">↑</button>
+<script src="js/cerca-index.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

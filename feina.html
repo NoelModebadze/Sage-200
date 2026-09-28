@@ -8,14 +8,20 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 </head>
-<body>
+<body data-anterior="competidors.html" data-seguent="avantatges.html">
 <a class="salta" href="#contingut">Salta al contingut</a>
+<div class="progres" aria-hidden="true"><span></span></div>
 
 <div class="pagina">
 
   <nav class="index" aria-label="Índex del treball">
-    <a class="marca" href="index.html">Sage 200</a>
-    <p class="autors">Nom Cognom 1 i Nom Cognom 2<br>Curs 2026-27</p>
+    <a class="marca" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#00a35c"/><rect x="8" y="8" width="7" height="7" rx="1.5" fill="#fff"/><rect x="17" y="8" width="7" height="7" rx="1.5" fill="#fff" opacity=".6"/><rect x="8" y="17" width="7" height="7" rx="1.5" fill="#fff" opacity=".6"/><rect x="17" y="17" width="7" height="7" rx="1.5" fill="#fff"/></svg><span>Sage 200</span></a>
+    <p class="autors">Noel Modebadze<br>Guillem Palahi<br><span class="curs">DAM · 2026-27</span></p>
+    <div class="cerca">
+      <label for="cerca" class="visualment-amagat">Cerca al treball</label>
+      <input type="search" id="cerca" placeholder="Cerca al treball…" autocomplete="off">
+      <ul id="resultats" class="resultats" hidden></ul>
+    </div>
     <ol>
       <li><a href="index.html">Introducció</a></li>
       <li><a href="informacio.html">Informació general</a></li>
@@ -28,6 +34,11 @@
       <li><a href="avantatges.html">Avantatges i inconvenients</a></li>
       <li><a href="bibliografia.html">Bibliografia</a></li>
     </ol>
+    <div class="eines">
+      <button type="button" id="boto-tema" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg> <span class="txt">Mode fosc</span></button>
+      <button type="button" id="boto-presentacio" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Mode presentació</button>
+      <p class="dreceres">Tecles <kbd>←</kbd> <kbd>→</kbd> per canviar de pàgina</p>
+    </div>
   </nav>
   <button class="boto-menu" type="button" aria-expanded="false">Índex</button>
 
@@ -35,42 +46,70 @@
 
     <section class="seccio" id="feina">
       <h2><span class="n">08</span>Ofertes de feina</h2>
-      <p>Una cerca a InfoJobs amb el terme "sage 200" retornava <span class="destacat"><strong>59 ofertes</strong></span> a tot Espanya (setembre de 2026). La majoria són perfils <strong>d'usuari</strong> (comptabilitat, administració, nòmines), però també n'hi ha de <strong>tècnics</strong> (consultors i programadors). Aquesta és una selecció:</p>
+      <p>A InfoJobs, la cerca "sage 200" retornava <span class="destacat">57 ofertes</span> a tot Espanya el setembre de 2026, i la cerca "consultor sage 200" en retornava 231, tot i que moltes d'aquestes són d'altres ERP. La majoria d'ofertes demanen Sage 200 com a <strong>usuari</strong> (comptabilitat, administració, nòmines), però també n'hi ha de <strong>perfil tècnic</strong>, que són les que encaixen amb el cicle de DAM.</p>
+
+      <div class="xifres-feina">
+        <div><strong>57</strong><span>ofertes amb "sage 200" a InfoJobs</span></div>
+        <div><strong>6</strong><span>ofertes seleccionades</span></div>
+        <div><strong>25–40 k€</strong><span>franja salarial de les ofertes que el publiquen</span></div>
+      </div>
+
+      <div class="filtre" role="group" aria-label="Filtra les ofertes">
+        <button type="button" class="actiu" data-filtre="totes" aria-pressed="true">Totes</button>
+        <button type="button" data-filtre="tecnic" aria-pressed="false">Perfil tècnic (DAM)</button>
+        <button type="button" data-filtre="usuari" aria-pressed="false">Usuari de l'ERP</button>
+      </div>
 
       <div class="ofertes">
-        <article class="oferta">
+        <article class="oferta destacada" data-tipus="tecnic">
+          <h3>Desenvolupador/a de Sage 200</h3>
+          <span class="sou">Sou no publicat</span>
+          <p class="lloc">AELIS (partner Platinum de Sage) · Oferta a InfoJobs</p>
+          <p>Personalitzacions i desenvolupaments per adaptar Sage als projectes dels clients: documentació tècnica, interfícies amb altres sistemes, informes personalitzats, consultes SQL, procediments emmagatzemats, funcions, vistes i personalització de pantalles i fluxos. Es demana <strong>FP de Grau Superior</strong> o enginyeria informàtica.</p>
+          <ul class="habilitats"><li>SQL</li><li>Procediments emmagatzemats</li><li>Personalització Sage 200</li><li>FP Grau Superior</li></ul>
+        </article>
+
+        <article class="oferta" data-tipus="tecnic">
+          <h3>Sage 200 Developer</h3>
+          <span class="sou">Regne Unit</span>
+          <p class="lloc">TSG (Technology Services Group) · Oxford / Chester · Jornada completa</p>
+          <p>Desenvolupar i mantenir solucions a mida per a Sage 200. Requereix un bon domini de VB.NET i experiència amb Microsoft SQL Server; es valora C#. És del Regne Unit, on el producte homònim té un SDK en .NET.</p>
+          <ul class="habilitats"><li>VB.NET</li><li>C#</li><li>SQL Server</li><li>API</li></ul>
+        </article>
+
+        <article class="oferta" data-tipus="usuari">
           <h3>Controller amb anglès</h3>
           <span class="sou">35.000–40.000 €</span>
           <p class="lloc">Multinacional del sector de l'estètica · Barcelona · Model flexible</p>
           <p>Comptabilitat de l'entitat espanyola i filials, tancaments mensuals, conciliacions i consolidació. Es demana operar i optimitzar l'ERP, idealment Sage 200 Advanced, i liderar millores i automatitzacions dins l'ERP.</p>
-          <ul class="habilitats"><li>Sage 200 Advanced</li><li>Comptabilitat</li><li>Anglès</li><li>KPI</li></ul>
+          <ul class="habilitats"><li>Sage 200 Advanced</li><li>Comptabilitat</li><li>Anglès</li></ul>
         </article>
 
-        <article class="oferta">
+        <article class="oferta" data-tipus="usuari">
           <h3>Tècnic/a de nòmines per a assessoria</h3>
           <span class="sou">25.000–33.000 €</span>
           <p class="lloc">Assessoria · Barcelona · Presencial · Contracte indefinit</p>
           <p>Gestió autònoma de carteres de clients i cicle complet de nòmina. Es demana experiència demostrable amb SAGE, preferiblement Sage 200 / Despachos.</p>
-          <ul class="habilitats"><li>Sage 200 Laboral</li><li>Nòmines</li><li>Seguretat Social</li><li>IRPF</li></ul>
+          <ul class="habilitats"><li>Sage 200 Laboral</li><li>Nòmines</li><li>Seguretat Social</li></ul>
         </article>
 
-        <article class="oferta">
+        <article class="oferta" data-tipus="usuari">
+          <h3>Tècnic/a de Recursos Humans</h3>
+          <span class="sou">Segons conveni + millora</span>
+          <p class="lloc">Manpower per a empresa client · Contracte indefinit · Horari de 7 a 15 h</p>
+          <p>Gestió de nòmines i assegurances socials amb Sage 200, altes i baixes a SILTRA i comunicació de contractes amb Contrat@ i Certific@. Es demanen 3 anys d'experiència.</p>
+          <ul class="habilitats"><li>Sage 200</li><li>SILTRA</li><li>Excel</li></ul>
+        </article>
+
+        <article class="oferta" data-tipus="usuari">
           <h3>Accounting Manager</h3>
-          <span class="sou">Segons vàlua</span>
+          <span class="sou">Sou no publicat</span>
           <p class="lloc">Consultora de comunicació · Barcelona · Híbrid</p>
           <p>Registre de factures, remeses de pagament, conciliacions bancàries i preparació d'impostos (303, 115, 123), amb Sage 200 com a eina de treball.</p>
           <ul class="habilitats"><li>Sage 200</li><li>Fiscalitat</li><li>Tresoreria</li></ul>
         </article>
-
-        <article class="oferta">
-          <h3>Sage 200 Developer</h3>
-          <span class="sou">Regne Unit</span>
-          <p class="lloc">TSG (Technology Services Group) · Oxford / Chester · Jornada completa</p>
-          <p>Desenvolupar i mantenir solucions a mida per a Sage 200. Requereix un bon domini de VB.NET i experiència amb Microsoft SQL Server; es valora C#.</p>
-          <ul class="habilitats"><li>VB.NET</li><li>C#</li><li>SQL Server</li><li>API</li></ul>
-        </article>
       </div>
-      <p class="nota">L'oferta de desenvolupador és del Regne Unit (on el producte homònim té un SDK en .NET), però mostra el perfil tècnic que es busca: .NET + SQL Server. A Espanya aquests perfils els contracten sobretot els <strong>partners de Sage</strong>, com a consultors d'implantació.</p>
+      <p class="nota">A Espanya, els perfils tècnics de Sage 200 els contracten sobretot els <strong>partners de Sage</strong>, com AELIS o, a Girona, Opentix, que fa més d'11 anys que implanta Sage 200 des de l'època de Sage Murano. Les ofertes canvien cada setmana: les dades són de la consulta del setembre de 2026.</p>
     </section>
 
     <nav class="passa-pagina" aria-label="Navegació entre pàgines">
@@ -84,6 +123,8 @@
   </main>
 </div>
 
+<button type="button" class="amunt" aria-label="Torna a dalt">↑</button>
+<script src="js/cerca-index.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
