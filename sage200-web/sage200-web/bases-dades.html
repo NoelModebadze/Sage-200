@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Treball sobre Sage 200, ERP per a pimes.">
+  <title>Base de dades · Sage 200</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="salta" href="#contingut">Salta al contingut</a>
+
+<div class="pagina">
+
+  <nav class="index" aria-label="Índex del treball">
+    <a class="marca" href="index.html">Sage 200</a>
+    <p class="autors">Nom Cognom 1 i Nom Cognom 2<br>Curs 2026-27</p>
+    <ol>
+      <li><a href="index.html">Introducció</a></li>
+      <li><a href="informacio.html">Informació general</a></li>
+      <li><a href="llicencies.html">Llicències i preus</a></li>
+      <li><a href="bases-dades.html" class="actiu" aria-current="page">Base de dades</a></li>
+      <li><a href="installacio.html">Instal·lació i accés</a></li>
+      <li><a href="moduls.html">Mòduls i desenvolupament</a></li>
+      <li><a href="competidors.html">Comparativa</a></li>
+      <li><a href="feina.html">Ofertes de feina</a></li>
+      <li><a href="avantatges.html">Avantatges i inconvenients</a></li>
+      <li><a href="bibliografia.html">Bibliografia</a></li>
+    </ol>
+  </nav>
+  <button class="boto-menu" type="button" aria-expanded="false">Índex</button>
+
+  <main id="contingut">
+
+    <section class="seccio" id="bases-dades">
+      <h2><span class="n">04</span>Sistema gestor de bases de dades</h2>
+
+      <h3>Tipus de SGBD</h3>
+      <p>Sage 200 treballa exclusivament amb <strong>Microsoft SQL Server</strong>, un SGBD <strong>relacional</strong>: les dades s'organitzen en taules amb files i columnes, relacionades entre elles per claus primàries i foranes, i es consulten amb el llenguatge <strong>SQL</strong> (en el dialecte de Microsoft, T-SQL).</p>
+      <p>En instal·lacions petites es pot fer servir l'edició gratuïta <em>SQL Server Express</em> (limitada en mida de base de dades i memòria), mentre que en empreses mitjanes s'usa SQL Server Standard. En la modalitat al núvol, la base de dades s'allotja a Azure.</p>
+
+      <h3>Model de dades simplificat</h3>
+      <figure>
+        <div class="llenc">
+          <svg viewBox="0 0 900 300" role="img" aria-labelledby="t-er">
+            <title id="t-er">Diagrama entitat-relació simplificat del circuit de vendes</title>
+            <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13">
+              <!-- Taula Clients -->
+              <rect x="20" y="40" width="190" height="150" rx="6" fill="#fff" stroke="#0f3d2e" stroke-width="2"/>
+              <rect x="20" y="40" width="190" height="32" rx="6" fill="#0f3d2e"/>
+              <text x="115" y="61" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">Clientes</text>
+              <text x="32" y="95">🔑 CodigoEmpresa</text>
+              <text x="32" y="117">🔑 CodigoCliente</text>
+              <text x="32" y="139">RazonSocial</text>
+              <text x="32" y="161">CifDni</text>
+              <text x="32" y="183">Municipio</text>
+
+              <!-- Capçalera comanda -->
+              <rect x="270" y="40" width="210" height="150" rx="6" fill="#fff" stroke="#0f3d2e" stroke-width="2"/>
+              <rect x="270" y="40" width="210" height="32" rx="6" fill="#0f3d2e"/>
+              <text x="375" y="61" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">CabeceraPedidoCliente</text>
+              <text x="282" y="95">🔑 EjercicioPedido</text>
+              <text x="282" y="117">🔑 NumeroPedido</text>
+              <text x="282" y="139">🔗 CodigoCliente</text>
+              <text x="282" y="161">FechaPedido</text>
+              <text x="282" y="183">ImporteLiquido</text>
+
+              <!-- Línies -->
+              <rect x="540" y="40" width="200" height="150" rx="6" fill="#fff" stroke="#0f3d2e" stroke-width="2"/>
+              <rect x="540" y="40" width="200" height="32" rx="6" fill="#0f3d2e"/>
+              <text x="640" y="61" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">LineasPedidoCliente</text>
+              <text x="552" y="95">🔗 NumeroPedido</text>
+              <text x="552" y="117">🔑 Orden</text>
+              <text x="552" y="139">🔗 CodigoArticulo</text>
+              <text x="552" y="161">Unidades</text>
+              <text x="552" y="183">Precio</text>
+
+              <!-- Articles -->
+              <rect x="700" y="220" width="180" height="70" rx="6" fill="#fff" stroke="#0f3d2e" stroke-width="2"/>
+              <rect x="700" y="220" width="180" height="28" rx="6" fill="#1f7a52"/>
+              <text x="790" y="239" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">Articulos</text>
+              <text x="712" y="270">🔑 CodigoArticulo</text>
+
+              <!-- relacions -->
+              <g stroke="#1f7a52" stroke-width="2" fill="none">
+                <line x1="210" y1="117" x2="270" y2="139"/>
+                <line x1="480" y1="117" x2="540" y2="95"/>
+                <path d="M740 139 H820 V218"/>
+              </g>
+              <g fill="#0f3d2e" font-weight="700">
+                <text x="216" y="110">1</text><text x="252" y="134">N</text>
+                <text x="486" y="110">1</text><text x="522" y="90">N</text>
+                <text x="746" y="132">N</text><text x="826" y="212">1</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <figcaption>Figura 4. Exemple il·lustratiu del circuit de comandes de venda. Els noms de taules i camps estan en castellà, com a la base de dades real; la clau <code>CodigoEmpresa</code> permet la gestió multiempresa.</figcaption>
+      </figure>
+
+      <h3>Altres informacions rellevants</h3>
+      <ul>
+        <li><strong>Integritat</strong>: com que tots els mòduls comparteixen la mateixa base de dades, una dada s'introdueix una sola vegada i la resta de mòduls la reutilitzen.</li>
+        <li><strong>Còpies de seguretat</strong>: en local es fan amb les eines de SQL Server o des de la mateixa aplicació; al núvol les gestiona la plataforma.</li>
+        <li><strong>Accés extern</strong>: eines de BI com Power BI o Excel poden llegir les dades a través de connectors ODBC/ADO.NET.</li>
+        <li><strong>Bona pràctica</strong>: no s'ha d'escriure directament a les taules de Sage des de fora de l'aplicació, perquè es poden saltar regles de negoci (comptabilització, estocs…). Les modificacions es fan amb les eines oficials.</li>
+      </ul>
+    </section>
+
+    <nav class="passa-pagina" aria-label="Navegació entre pàgines">
+      <a class="ant" href="llicencies.html"><span>Anterior</span>Llicències i preus</a>
+      <a class="seg" href="installacio.html"><span>Següent</span>Instal·lació i accés</a>
+    </nav>
+
+    <footer class="peu">
+      <p>Treball de Sistemes de Gestió Empresarial · Fet amb HTML5 i CSS3. Els noms Sage, Sage 200 i Sage Murano són marques de The Sage Group plc; aquest és un treball acadèmic sense afiliació amb l'empresa.</p>
+    </footer>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

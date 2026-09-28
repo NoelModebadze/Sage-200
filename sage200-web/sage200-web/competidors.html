@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Treball sobre Sage 200, ERP per a pimes.">
+  <title>Comparativa · Sage 200</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="salta" href="#contingut">Salta al contingut</a>
+
+<div class="pagina">
+
+  <nav class="index" aria-label="Índex del treball">
+    <a class="marca" href="index.html">Sage 200</a>
+    <p class="autors">Nom Cognom 1 i Nom Cognom 2<br>Curs 2026-27</p>
+    <ol>
+      <li><a href="index.html">Introducció</a></li>
+      <li><a href="informacio.html">Informació general</a></li>
+      <li><a href="llicencies.html">Llicències i preus</a></li>
+      <li><a href="bases-dades.html">Base de dades</a></li>
+      <li><a href="installacio.html">Instal·lació i accés</a></li>
+      <li><a href="moduls.html">Mòduls i desenvolupament</a></li>
+      <li><a href="competidors.html" class="actiu" aria-current="page">Comparativa</a></li>
+      <li><a href="feina.html">Ofertes de feina</a></li>
+      <li><a href="avantatges.html">Avantatges i inconvenients</a></li>
+      <li><a href="bibliografia.html">Bibliografia</a></li>
+    </ol>
+  </nav>
+  <button class="boto-menu" type="button" aria-expanded="false">Índex</button>
+
+  <main id="contingut">
+
+    <section class="seccio" id="competidors">
+      <h2><span class="n">07</span>Comparativa amb els competidors</h2>
+      <p>Hem comparat Sage 200 amb dos dels ERP més habituals a les pimes espanyoles: <strong>Odoo</strong>, l'alternativa de codi obert, i <strong>Microsoft Dynamics 365 Business Central</strong>, l'ERP per a pimes de Microsoft.</p>
+
+      <div class="taula">
+        <table>
+          <thead>
+            <tr><th scope="col">Criteri</th><th scope="col" class="nostre">Sage 200</th><th scope="col">Odoo</th><th scope="col">Dynamics 365 Business Central</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Fabricant</th><td>The Sage Group (Regne Unit), producte d'origen català</td><td>Odoo S.A. (Bèlgica)</td><td>Microsoft (EUA)</td></tr>
+            <tr><th scope="row">Llicència</th><td>Comercial, propietària</td><td>Community lliure (LGPLv3) + Enterprise de pagament</td><td>Comercial, propietària</td></tr>
+            <tr><th scope="row">Preu orientatiu</th><td>Des de 50 €/mes (Extra); Smart Business des de 136 €/mes sense límit d'usuaris</td><td>Community gratuïta; Enterprise aprox. 15–30 €/usuari/mes</td><td>Aprox. 70–110 €/usuari/mes segons pla (Essentials / Premium)</td></tr>
+            <tr><th scope="row">Distribució</th><td>On-Premise, subscripció i núvol (Azure)</td><td>SaaS, Odoo.sh i On-Premise</td><td>SaaS principalment; també On-Premise</td></tr>
+            <tr><th scope="row">Base de dades</th><td>SQL Server</td><td>PostgreSQL</td><td>Azure SQL / SQL Server</td></tr>
+            <tr><th scope="row">Llenguatges</th><td>VB / .NET, T-SQL, scripts propis</td><td>Python, JavaScript (OWL), XML</td><td>AL (llenguatge propi), C# per a integracions</td></tr>
+            <tr><th scope="row">IDE per desenvolupar</th><td>Editor integrat, Visual Studio, SSMS</td><td>Qualsevol IDE (VS Code, PyCharm)</td><td>Visual Studio Code + extensió AL</td></tr>
+            <tr><th scope="row">Plataformes</th><td>Windows (altres via navegador)</td><td>Web: qualsevol SO; servidor Linux/Windows</td><td>Web: qualsevol SO</td></tr>
+            <tr><th scope="row">Mòduls</th><td>Comptabilitat, gestió, laboral, CRM, producció, projectes</td><td>Més de 40 apps oficials + milers de la comunitat</td><td>Finances, vendes, compres, magatzem, projectes, producció</td></tr>
+            <tr><th scope="row">Punt fort</th><td>Adaptació total a la legislació espanyola i nòmines</td><td>Cost baix i flexibilitat</td><td>Integració amb l'ecosistema Microsoft</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure>
+        <div class="llenc">
+          <svg viewBox="0 0 900 270" role="img" aria-labelledby="t-comp">
+            <title id="t-comp">Cost mensual estimat per a una empresa de 5 usuaris</title>
+            <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+              <line x1="250" y1="20" x2="250" y2="220" stroke="#0f3d2e" stroke-width="2"/>
+              <line x1="250" y1="220" x2="870" y2="220" stroke="#0f3d2e" stroke-width="2"/>
+              <g font-size="12" fill="#5b6b63" text-anchor="middle">
+                <text x="250" y="240">0 €</text><text x="400" y="240">100 €</text><text x="550" y="240">200 €</text>
+                <text x="700" y="240">300 €</text><text x="850" y="240">400 €</text>
+              </g>
+              <!-- 1 € = 1.5 px -->
+              <text x="235" y="52" text-anchor="end" font-size="15" font-weight="600">Odoo Community</text>
+              <rect x="252" y="32" width="3" height="30" fill="#5b6b63"/>
+              <text x="264" y="53" font-size="14" font-weight="700">0 € (sense suport)</text>
+
+              <text x="235" y="97" text-anchor="end" font-size="15" font-weight="600">Odoo Enterprise</text>
+              <rect x="252" y="77" width="112" height="30" fill="#5b6b63"/>
+              <text x="372" y="98" font-size="14" font-weight="700">≈ 75 €</text>
+
+              <text x="235" y="142" text-anchor="end" font-size="15" font-weight="600">Sage 200 Smart Business</text>
+              <rect x="252" y="122" width="204" height="30" fill="#1f7a52"/>
+              <text x="464" y="143" font-size="14" font-weight="700">136 €</text>
+
+              <text x="235" y="187" text-anchor="end" font-size="15" font-weight="600">Business Central</text>
+              <rect x="252" y="167" width="525" height="30" fill="#5b6b63"/>
+              <text x="785" y="188" font-size="14" font-weight="700">≈ 350 €</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption>Figura 5. Estimació de llicència mensual per a 5 usuaris (preus d'entrada, sense IVA ni implantació). Són ordres de magnitud orientatius: cal verificar-los a les webs oficials.</figcaption>
+      </figure>
+    </section>
+
+    <nav class="passa-pagina" aria-label="Navegació entre pàgines">
+      <a class="ant" href="moduls.html"><span>Anterior</span>Mòduls i desenvolupament</a>
+      <a class="seg" href="feina.html"><span>Següent</span>Ofertes de feina</a>
+    </nav>
+
+    <footer class="peu">
+      <p>Treball de Sistemes de Gestió Empresarial · Fet amb HTML5 i CSS3. Els noms Sage, Sage 200 i Sage Murano són marques de The Sage Group plc; aquest és un treball acadèmic sense afiliació amb l'empresa.</p>
+    </footer>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

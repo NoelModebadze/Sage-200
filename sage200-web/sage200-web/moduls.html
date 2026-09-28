@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Treball sobre Sage 200, ERP per a pimes.">
+  <title>Mòduls i desenvolupament · Sage 200</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="salta" href="#contingut">Salta al contingut</a>
+
+<div class="pagina">
+
+  <nav class="index" aria-label="Índex del treball">
+    <a class="marca" href="index.html">Sage 200</a>
+    <p class="autors">Nom Cognom 1 i Nom Cognom 2<br>Curs 2026-27</p>
+    <ol>
+      <li><a href="index.html">Introducció</a></li>
+      <li><a href="informacio.html">Informació general</a></li>
+      <li><a href="llicencies.html">Llicències i preus</a></li>
+      <li><a href="bases-dades.html">Base de dades</a></li>
+      <li><a href="installacio.html">Instal·lació i accés</a></li>
+      <li><a href="moduls.html" class="actiu" aria-current="page">Mòduls i desenvolupament</a></li>
+      <li><a href="competidors.html">Comparativa</a></li>
+      <li><a href="feina.html">Ofertes de feina</a></li>
+      <li><a href="avantatges.html">Avantatges i inconvenients</a></li>
+      <li><a href="bibliografia.html">Bibliografia</a></li>
+    </ol>
+  </nav>
+  <button class="boto-menu" type="button" aria-expanded="false">Índex</button>
+
+  <main id="contingut">
+
+    <section class="seccio" id="moduls">
+      <h2><span class="n">06</span>Mòduls i funcionalitats</h2>
+      <p>Sage 200 és modular. Aquests són els tres mòduls més importants i més utilitzats:</p>
+
+      <div class="moduls">
+        <article class="modul">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="6" width="32" height="28" rx="3" fill="none" stroke="#1f7a52" stroke-width="3"/><line x1="4" y1="14" x2="36" y2="14" stroke="#1f7a52" stroke-width="3"/><line x1="20" y1="14" x2="20" y2="34" stroke="#1f7a52" stroke-width="3"/></svg>
+          <h3>Comptabilitat i finances</h3>
+          <ul>
+            <li>Llibre diari, balanços i compte de resultats.</li>
+            <li>Tresoreria, cartera d'efectes i remeses SEPA.</li>
+            <li>Connexió bancària i conciliació automàtica.</li>
+            <li>Models d'impostos (IVA, retencions) i SII.</li>
+            <li>Comptabilitat analítica i pressupostària.</li>
+          </ul>
+        </article>
+
+        <article class="modul">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 14 L20 6 L34 14 V32 H6 Z" fill="none" stroke="#1f7a52" stroke-width="3" stroke-linejoin="round"/><rect x="14" y="20" width="12" height="12" fill="none" stroke="#1f7a52" stroke-width="3"/></svg>
+          <h3>Gestió comercial i magatzem</h3>
+          <ul>
+            <li>Circuit de vendes: oferta → comanda → albarà → factura.</li>
+            <li>Circuit de compres a proveïdors.</li>
+            <li>Estocs, inventaris, lots i números de sèrie.</li>
+            <li>Tarifes, descomptes i comissions.</li>
+            <li>Facturació electrònica.</li>
+          </ul>
+        </article>
+
+        <article class="modul">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="13" r="7" fill="none" stroke="#1f7a52" stroke-width="3"/><path d="M6 36 C6 26 34 26 34 36" fill="none" stroke="#1f7a52" stroke-width="3"/></svg>
+          <h3>Laboral (nòmines i RRHH)</h3>
+          <ul>
+            <li>Càlcul de nòmines segons conveni.</li>
+            <li>Seguretat Social: cotitzacions i sistema RED.</li>
+            <li>IRPF i models 111 i 190.</li>
+            <li>Gestió de contractes, vacances i absències.</li>
+            <li>Portal de l'empleat (amb Sage HR).</li>
+          </ul>
+        </article>
+      </div>
+
+      <p>Altres mòduls disponibles: <strong>CRM</strong> (oportunitats i fidelització de clients), <strong>producció</strong>, <strong>projectes</strong>, <strong>postvenda</strong>, <strong>magatzems avançats</strong> i <strong>intel·ligència de negoci</strong> amb indicadors clau.</p>
+
+      <h3>Capacitat de crear nous mòduls</h3>
+      <p>Sage 200 és molt personalitzable, i una bona part de la feina dels partners consisteix a adaptar-lo a cada client. Hi ha dos nivells:</p>
+      <ol>
+        <li><strong>Eines de personalització integrades</strong>: dins la mateixa aplicació es poden crear camps nous, pantalles, llistats i processos. S'hi programa amb les <em>instruccions de càlcul</em> pròpies de Sage (un llenguatge de script orientat a esdeveniments) combinades amb consultes SQL. Sage ofereix cursos específics (bàsic i avançat) per aprendre-ho.</li>
+        <li><strong>Desenvolupament extern en .NET</strong>: aplicacions i integracions en C# o VB.NET que llegeixen o envien dades a Sage 200 mitjançant la base de dades, connectors o API.</li>
+      </ol>
+
+      <h4>Llenguatges per crear nous mòduls</h4>
+      <div class="taula">
+        <table>
+          <thead><tr><th scope="col">Llenguatge</th><th scope="col">Ús dins de Sage 200</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Script de Sage (instruccions de càlcul)</th><td>Lògica de pantalles, camps i processos personalitzats dins l'aplicació.</td></tr>
+            <tr><th scope="row">SQL / T-SQL</th><td>Consultes, llistats, vistes i taules pròpies de les personalitzacions.</td></tr>
+            <tr><th scope="row">C# i VB.NET</th><td>Integracions i aplicacions externes (e-commerce, apps, connectors).</td></tr>
+            <tr><th scope="row">HTML / JavaScript</th><td>Portals web i serveis que consumeixen l'API al núvol.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Eines de desenvolupament (IDE)</h4>
+      <ul>
+        <li><strong>Editor de personalitzacions de Sage 200</strong>: integrat a l'aplicació.</li>
+        <li><strong>SQL Server Management Studio (SSMS)</strong>: per explorar la base de dades i provar consultes.</li>
+        <li><strong>Visual Studio</strong>: per a desenvolupaments en C#/VB.NET.</li>
+        <li><strong>Visual Studio Code</strong>: per a scripts, portals web i integracions lleugeres.</li>
+      </ul>
+
+      <h4>Exemples de codi</h4>
+      <p class="etiqueta-codi">1. Consulta T-SQL: els 10 clients que més han comprat aquest any (per a un llistat personalitzat).</p>
+<pre><code><span class="kw">SELECT TOP</span> 10
+       c.CodigoCliente,
+       c.RazonSocial,
+       <span class="kw">SUM</span>(p.ImporteLiquido) <span class="kw">AS</span> TotalComprat
+<span class="kw">FROM</span>   Clientes c
+<span class="kw">JOIN</span>   CabeceraPedidoCliente p
+       <span class="kw">ON</span>  p.CodigoEmpresa = c.CodigoEmpresa
+       <span class="kw">AND</span> p.CodigoCliente = c.CodigoCliente
+<span class="kw">WHERE</span>  c.CodigoEmpresa = 1
+  <span class="kw">AND</span>  p.EjercicioPedido = <span class="kw">YEAR</span>(<span class="kw">GETDATE</span>())
+<span class="kw">GROUP BY</span> c.CodigoCliente, c.RazonSocial
+<span class="kw">ORDER BY</span> TotalComprat <span class="kw">DESC</span>;</code></pre>
+
+      <p class="etiqueta-codi">2. C# (.NET): una integració que llegeix clients de Sage 200 per sincronitzar-los amb una botiga en línia.</p>
+<pre><code><span class="kw">using</span> Microsoft.Data.SqlClient;
+
+<span class="kw">var</span> cadena = <span class="str">"Server=SERVIDOR\\SAGE200;Database=Sage200;Integrated Security=true;TrustServerCertificate=true"</span>;
+
+<span class="kw">using var</span> con = <span class="kw">new</span> SqlConnection(cadena);
+con.Open();
+
+<span class="kw">var</span> sql = <span class="str">"SELECT CodigoCliente, RazonSocial, Municipio FROM Clientes WHERE CodigoEmpresa = @emp"</span>;
+<span class="kw">using var</span> cmd = <span class="kw">new</span> SqlCommand(sql, con);
+cmd.Parameters.AddWithValue(<span class="str">"@emp"</span>, 1);
+
+<span class="kw">using var</span> lector = cmd.ExecuteReader();
+<span class="kw">while</span> (lector.Read())
+{
+    <span class="com">// Aquí s'enviaria cada client a l'API de la botiga en línia</span>
+    Console.WriteLine($<span class="str">"{lector["CodigoCliente"]} - {lector["RazonSocial"]} ({lector["Municipio"]})"</span>);
+}</code></pre>
+      <p class="nota">Exemples il·lustratius amb finalitat didàctica. Els noms exactes de taules i camps poden variar segons la versió; per escriure dades cal fer servir les eines oficials de Sage, no inserir directament a les taules.</p>
+    </section>
+
+    <nav class="passa-pagina" aria-label="Navegació entre pàgines">
+      <a class="ant" href="installacio.html"><span>Anterior</span>Instal·lació i accés</a>
+      <a class="seg" href="competidors.html"><span>Següent</span>Comparativa</a>
+    </nav>
+
+    <footer class="peu">
+      <p>Treball de Sistemes de Gestió Empresarial · Fet amb HTML5 i CSS3. Els noms Sage, Sage 200 i Sage Murano són marques de The Sage Group plc; aquest és un treball acadèmic sense afiliació amb l'empresa.</p>
+    </footer>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
